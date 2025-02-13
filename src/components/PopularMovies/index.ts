@@ -1,0 +1,1 @@
+export { PopularMoviesContainer as PopularMovies } from './PopularMoviesContainer' 
