@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///Users/Daniel/Documents/Code/liteflix/liteflix-web/src/app/%28routes%29/home/components/HomeView.tsx"],"sourcesContent":["'use client'\n\nimport {\n  Box,\n  Button,\n  Stack,\n  Typography,\n  MenuItem,\n} from '@mui/material'\n\nimport {\n  FullHeightBox,\n  GradientOverlay,\n  HeaderContainer,\n  StyledSelect,\n  ContentContainer,\n  MovieTitle,\n  PlayButton,\n  ListButton,\n} from './styles'\n\nexport function HomeView() {\n  return (\n    <FullHeightBox>\n      <HeaderContainer>\n        {/* ... contenido del header ... */}\n      </HeaderContainer>\n      {/* ... resto del contenido ... */}\n    </FullHeightBox>\n  )\n} "],"names":[],"mappings":";;;;;;;;;AAAA;;;AAqBO,SAAS;IACd,qBACE,8OAAC;kBACC,cAAA,8OAAC;;;;;;;;;;AAMP"}},
-    {"offset": {"line": 32, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
-}

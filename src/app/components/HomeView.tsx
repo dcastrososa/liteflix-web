@@ -59,6 +59,8 @@ const MotionBox = motion(Box)
 const MotionTypography = motion(Typography)
 const MotionMovieTitle = motion(MovieTitle)
 
+const MotionButtonsContainer = motion(ButtonsContainer)
+
 export function HomeView() {
   const [isAddMovieModalOpen, setIsAddMovieModalOpen] = useState(false)
 
@@ -132,9 +134,8 @@ export function HomeView() {
                 {nowPlayingMovie?.originalTitle}
               </MotionMovieTitle>
 
-              <MotionBox 
+              <MotionButtonsContainer 
                 variants={item}
-                component={ButtonsContainer}
               >
                 <PlayButton startIcon={<PlayArrowOutlinedIcon />}>
                   REPRODUCIR
@@ -142,7 +143,7 @@ export function HomeView() {
                 <ListButton startIcon={<AddIcon />}>
                   MI LISTA
                 </ListButton>
-              </MotionBox>
+              </MotionButtonsContainer>
             </MotionBox>
           </ContentContainer>
         </MainContent>

@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///Users/Daniel/Documents/Code/liteflix/liteflix-web/src/app/providers.tsx"],"sourcesContent":["'use client'\n\nimport { QueryClient, QueryClientProvider } from '@tanstack/react-query'\nimport { ReactQueryDevtools } from '@tanstack/react-query-devtools'\nimport { useState } from 'react'\n\nexport function Providers({ children }: { children: React.ReactNode }) {\n  const [queryClient] = useState(() => new QueryClient({\n    defaultOptions: {\n      queries: {\n        staleTime: 60 * 1000, // 1 minuto\n        refetchOnWindowFocus: false,\n      },\n    },\n  }))\n\n  return (\n    <QueryClientProvider client={queryClient}>\n      {children}\n      <ReactQueryDevtools initialIsOpen={false} />\n    </QueryClientProvider>\n  )\n} "],"names":[],"mappings":";;;;AAIA;AAFA;AAAA;AACA;;;AAHA;;;;AAMO,SAAS,UAAU,EAAE,QAAQ,EAAiC;;IACnE,MAAM,CAAC,YAAY,GAAG,CAAA,GAAA,6JAAA,CAAA,WAAQ,AAAD;8BAAE,IAAM,IAAI,gLAAA,CAAA,cAAW,CAAC;gBACnD,gBAAgB;oBACd,SAAS;wBACP,WAAW,KAAK;wBAChB,sBAAsB;oBACxB;gBACF;YACF;;IAEA,qBACE,6LAAC,yLAAA,CAAA,sBAAmB;QAAC,QAAQ;;YAC1B;0BACD,6LAAC,uLAAA,CAAA,qBAAkB;gBAAC,eAAe;;;;;;;;;;;;AAGzC;GAhBgB;KAAA"}},
-    {"offset": {"line": 58, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
-}

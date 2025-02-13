@@ -1,1 +1,16 @@
-{}
+{
+  "../node_modules/@tanstack/query-devtools/build/index.js -> ./DevtoolsComponent/HO4MOOFI.js": {
+    "id": null,
+    "files": []
+  },
+  "../node_modules/@tanstack/query-devtools/build/index.js -> ./DevtoolsPanelComponent/HUY7CZI3.js": {
+    "id": null,
+    "files": []
+  },
+  "components/PopularMovies/PopularMoviesContainer.tsx -> ./PopularMovies": {
+    "id": 2019,
+    "files": [
+      "static/chunks/19.dec2da272414eec7.js"
+    ]
+  }
+}

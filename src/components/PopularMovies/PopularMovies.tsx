@@ -91,7 +91,7 @@ export default function PopularMovies() {
     setHoveredId(null);
   };
 
-  const handleOptionChange = (event: SelectChangeEvent<string>) => {
+  const handleOptionChange = (event: SelectChangeEvent<unknown>) => {
     setSelectedOption(event.target.value as 'POPULARES' | 'MIS_PELICULAS');
   };
 
