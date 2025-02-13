@@ -1,6 +1,7 @@
 import { Typography } from "@mui/material";
 import { DropZone, DropZoneText, UploadButton, MovieTitleInput } from "../styles";
 import AttachFileIcon from '@mui/icons-material/AttachFile'
+import { DropzoneRootProps, DropzoneInputProps } from 'react-dropzone';
 
 interface UploadFormProps {
   file: File | null;
@@ -9,15 +10,14 @@ interface UploadFormProps {
   onDrop: (files: File[]) => void;
   onTitleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onSubmit: () => void;
-  getRootProps: () => any;
-  getInputProps: () => any;
+  getRootProps: () => DropzoneRootProps;
+  getInputProps: () => DropzoneInputProps;
 }
 
 export function UploadForm({
   file,
   movieTitle,
   error,
-  onDrop,
   onTitleChange,
   onSubmit,
   getRootProps,

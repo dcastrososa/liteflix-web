@@ -2,7 +2,7 @@ import { styled } from '@mui/material/styles'
 import { Box, Button, IconButton, TextField } from '@mui/material'
 import { motion } from 'framer-motion'
 
-export const ModalContainer = styled(motion(Box))(({ theme }) => ({
+export const ModalContainer = styled(motion(Box))(() => ({
   position: 'fixed',
   top: 0,
   left: 0,

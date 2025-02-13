@@ -3,7 +3,6 @@
 import {
   IconButton,
   Avatar,
-  Button,
   Box,
 } from '@mui/material'
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined'

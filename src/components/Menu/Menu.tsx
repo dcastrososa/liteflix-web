@@ -2,21 +2,18 @@
 
 import { useState } from 'react'
 import CloseIcon from '@mui/icons-material/Close'
-import MenuIcon from '@mui/icons-material/Menu'
 import { AnimatePresence } from 'framer-motion'
+import { SvgIconProps } from '@mui/material'
 
 import {
   MenuButton,
   MenuContainer,
   MenuContent,
   MenuItem,
-  MenuTitle,
   AddMovieButton,
   LogoutButton,
   CloseButton,
 } from './styles'
-
-import { AddMovieModal } from '../AddMovieModal/AddMovieModal'
 import { CustomMenuIcon } from '../Header/MenuIcon'
 
 const MENU_ITEMS = [
@@ -31,7 +28,7 @@ const MENU_ITEMS = [
 
 interface MenuProps {
   onAddMovie: () => void
-  MenuIcon?: React.ComponentType<any>
+  MenuIcon?: React.ComponentType<SvgIconProps>
 }
 
 export function Menu({ onAddMovie, MenuIcon = CustomMenuIcon }: MenuProps) {

@@ -1,11 +1,8 @@
 'use client'
 
 import { useState, useMemo } from 'react'
-import { MenuItem, Box } from '@mui/material'
-import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline'
 import StarIcon from '@mui/icons-material/Star'
 import { AnimatePresence, motion } from 'framer-motion'
-import { useHasMounted } from '@/hooks/useHasMounted'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import { SelectChangeEvent } from '@mui/material'
 

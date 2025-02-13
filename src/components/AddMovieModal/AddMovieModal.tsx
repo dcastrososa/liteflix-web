@@ -10,16 +10,7 @@ import {
   ModalContainer,
   ModalContent,
   ModalTitle,
-  CloseButton,
-  DropZone,
-  DropZoneText,
-  UploadButton,
-  MovieTitleInput,
-  LoadingContainer,
-  LoadingText,
-  ProgressBar,
-  Progress,
-  CancelButton,
+  CloseButton
 } from './styles'
 import { UploadForm } from './components/UploadForm'
 import { UploadProgress } from './components/UploadProgress'
@@ -46,7 +37,7 @@ export function AddMovieModal({ isOpen, onClose }: AddMovieModalProps) {
   const queryClient = useQueryClient()
 
   const { mutate, isPending: isLoading } = useMutation({
-    mutationFn: (data: CreateMovieDto) => 
+    mutationFn: (data: CreateMovieDto) =>
       moviesApi.create(data, (progress) => setUploadProgress(progress)),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['movies', 'my-movies'] })
@@ -59,7 +50,7 @@ export function AddMovieModal({ isOpen, onClose }: AddMovieModalProps) {
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
     const file = acceptedFiles[0]
-    
+
     if (file.size > MAX_FILE_SIZE) {
       setError('El archivo no debe superar los 5MB')
       return
@@ -136,7 +127,7 @@ export function AddMovieModal({ isOpen, onClose }: AddMovieModalProps) {
                 getInputProps={getInputProps}
               />
             ) : isSuccess ? (
-              <SuccessView 
+              <SuccessView
                 movieTitle={movieTitle}
                 onClose={handleClose}
               />
