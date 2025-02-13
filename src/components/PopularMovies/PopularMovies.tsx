@@ -151,7 +151,7 @@ export default function PopularMovies() {
         {movies?.map((movie) => (
           <MotionClickableBox 
             key={movie.id}
-            variants={item}
+            variants={cardVariants}
             animate={getCardState(movie.id)}
             onMouseEnter={() => handleMouseEnter(movie.id)}
             onMouseLeave={handleMouseLeave}
