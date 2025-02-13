@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import {
   Box,
-  Stack,
   Typography,
 } from '@mui/material'
 import { styled } from '@mui/material/styles'

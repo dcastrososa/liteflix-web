@@ -15,6 +15,7 @@ import {
 import { UploadForm } from './components/UploadForm'
 import { UploadProgress } from './components/UploadProgress'
 import { SuccessView } from './components/SuccessView'
+import { AxiosError } from 'axios'
 
 interface AddMovieModalProps {
   isOpen: boolean
@@ -43,7 +44,7 @@ export function AddMovieModal({ isOpen, onClose }: AddMovieModalProps) {
       queryClient.invalidateQueries({ queryKey: ['movies', 'my-movies'] })
       setIsSuccess(true)
     },
-    onError: (error: any) => {
+    onError: (error: AxiosError<{ message: string }>) => {
       setError(error.response?.data?.message || 'Error al subir la película')
     },
   })
@@ -60,7 +61,7 @@ export function AddMovieModal({ isOpen, onClose }: AddMovieModalProps) {
     setError(null)
   }, [])
 
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+  const { getRootProps, getInputProps } = useDropzone({
     onDrop,
     accept: ACCEPTED_FILE_TYPES,
     maxFiles: 1,

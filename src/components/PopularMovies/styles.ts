@@ -1,7 +1,6 @@
 import { styled } from '@mui/material/styles'
 import { Box, Typography, Select, MenuItem } from '@mui/material'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'
-import CheckIcon from '@mui/icons-material/Check'
 import { motion } from 'framer-motion'
 
 export const SidebarContainer = styled(Box)(({ theme }) => ({
@@ -173,7 +172,7 @@ export const DefaultContent = motion(styled(Box)({
   }
 }));
 
-export const MovieOverlay = motion(styled(Box)(({ theme }) => ({
+export const MovieOverlay = motion(styled(Box)(() => ({
   position: 'absolute',
   inset: 0,
   backgroundColor: 'rgba(36, 36, 36, 0.7)',
@@ -254,7 +253,7 @@ export const PlayIcon = styled(PlayArrowIcon)(({ theme }) => ({
   },
 }));
 
-export const PlayIconWrapper = styled(Box)(({ theme }) => ({
+export const PlayIconWrapper = styled(Box)(() => ({
   position: 'absolute',
   inset: 0,
   display: 'flex',

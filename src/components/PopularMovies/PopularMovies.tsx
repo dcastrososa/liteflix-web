@@ -33,7 +33,7 @@ const container = {
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1, // Cada hijo aparecerá con 0.1s de diferencia
+      staggerChildren: 0.1,
     }
   }
 }
@@ -153,7 +153,6 @@ export default function PopularMovies() {
             key={movie.id}
             variants={item}
             animate={getCardState(movie.id)}
-            variants={cardVariants}
             onMouseEnter={() => handleMouseEnter(movie.id)}
             onMouseLeave={handleMouseLeave}
             style={{

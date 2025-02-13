@@ -1588,7 +1588,7 @@ function AddMovieModal({ isOpen, onClose }) {
         setFile(file);
         setError(null);
     }, []);
-    const { getRootProps, getInputProps, isDragActive } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$dropzone$2f$dist$2f$es$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["useDropzone"])({
+    const { getRootProps, getInputProps } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$dropzone$2f$dist$2f$es$2f$index$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$locals$3e$__["useDropzone"])({
         onDrop,
         accept: ACCEPTED_FILE_TYPES,
         maxFiles: 1,
@@ -1647,19 +1647,19 @@ function AddMovieModal({ isOpen, onClose }) {
                         onClick: handleClose,
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$icons$2d$material$2f$esm$2f$Close$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                             fileName: "[project]/src/components/AddMovieModal/AddMovieModal.tsx",
-                            lineNumber: 112,
+                            lineNumber: 113,
                             columnNumber: 15
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/AddMovieModal/AddMovieModal.tsx",
-                        lineNumber: 111,
+                        lineNumber: 112,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$AddMovieModal$2f$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ModalTitle"], {
                         children: isSuccess ? 'LITEFLIX' : 'AGREGAR PELÍCULA'
                     }, void 0, false, {
                         fileName: "[project]/src/components/AddMovieModal/AddMovieModal.tsx",
-                        lineNumber: 114,
+                        lineNumber: 115,
                         columnNumber: 13
                     }, this),
                     !isLoading && !isSuccess ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$AddMovieModal$2f$components$2f$UploadForm$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["UploadForm"], {
@@ -1673,37 +1673,37 @@ function AddMovieModal({ isOpen, onClose }) {
                         getInputProps: getInputProps
                     }, void 0, false, {
                         fileName: "[project]/src/components/AddMovieModal/AddMovieModal.tsx",
-                        lineNumber: 119,
+                        lineNumber: 120,
                         columnNumber: 15
                     }, this) : isSuccess ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$AddMovieModal$2f$components$2f$SuccessView$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SuccessView"], {
                         movieTitle: movieTitle,
                         onClose: handleClose
                     }, void 0, false, {
                         fileName: "[project]/src/components/AddMovieModal/AddMovieModal.tsx",
-                        lineNumber: 130,
+                        lineNumber: 131,
                         columnNumber: 15
                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$AddMovieModal$2f$components$2f$UploadProgress$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["UploadProgress"], {
                         progress: uploadProgress,
                         onCancel: handleClose
                     }, void 0, false, {
                         fileName: "[project]/src/components/AddMovieModal/AddMovieModal.tsx",
-                        lineNumber: 135,
+                        lineNumber: 136,
                         columnNumber: 15
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/AddMovieModal/AddMovieModal.tsx",
-                lineNumber: 106,
+                lineNumber: 107,
                 columnNumber: 11
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/components/AddMovieModal/AddMovieModal.tsx",
-            lineNumber: 101,
+            lineNumber: 102,
             columnNumber: 9
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/AddMovieModal/AddMovieModal.tsx",
-        lineNumber: 99,
+        lineNumber: 100,
         columnNumber: 5
     }, this);
 }
@@ -2003,25 +2003,25 @@ function HomeView() {
                     onAddMovie: handleOpenModal
                 }, void 0, false, {
                     fileName: "[project]/src/app/components/HomeView.tsx",
-                    lineNumber: 74,
+                    lineNumber: 73,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$components$2f$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["FullHeightBox"], {
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Skeletons$2f$MovieSkeleton$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["MovieSkeleton"], {}, void 0, false, {
                             fileName: "[project]/src/app/components/HomeView.tsx",
-                            lineNumber: 76,
+                            lineNumber: 75,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PopularMovies$2f$PopularMoviesContainer$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__PopularMoviesContainer__as__PopularMovies$3e$__["PopularMovies"], {}, void 0, false, {
                             fileName: "[project]/src/app/components/HomeView.tsx",
-                            lineNumber: 77,
+                            lineNumber: 76,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/components/HomeView.tsx",
-                    lineNumber: 75,
+                    lineNumber: 74,
                     columnNumber: 9
                 }, this)
             ]
@@ -2033,7 +2033,7 @@ function HomeView() {
                 onAddMovie: handleOpenModal
             }, void 0, false, {
                 fileName: "[project]/src/app/components/HomeView.tsx",
-                lineNumber: 85,
+                lineNumber: 84,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$components$2f$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["FullHeightBox"], {
@@ -2042,7 +2042,7 @@ function HomeView() {
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$components$2f$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["GradientOverlay"], {}, void 0, false, {
                                 fileName: "[project]/src/app/components/HomeView.tsx",
-                                lineNumber: 88,
+                                lineNumber: 87,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Box$2f$Box$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Box$3e$__["Box"], {
@@ -2057,7 +2057,7 @@ function HomeView() {
                                 }
                             }, void 0, false, {
                                 fileName: "[project]/src/app/components/HomeView.tsx",
-                                lineNumber: 89,
+                                lineNumber: 88,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$components$2f$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ContentContainer"], {
@@ -2103,13 +2103,13 @@ function HomeView() {
                                                     children: "LITEFLIX"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/components/HomeView.tsx",
-                                                    lineNumber: 129,
+                                                    lineNumber: 128,
                                                     columnNumber: 29
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/components/HomeView.tsx",
-                                            lineNumber: 113,
+                                            lineNumber: 112,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(MotionMovieTitle, {
@@ -2117,7 +2117,7 @@ function HomeView() {
                                             children: nowPlayingMovie?.originalTitle
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/components/HomeView.tsx",
-                                            lineNumber: 132,
+                                            lineNumber: 131,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(MotionBox, {
@@ -2127,59 +2127,59 @@ function HomeView() {
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$components$2f$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["PlayButton"], {
                                                     startIcon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$icons$2d$material$2f$esm$2f$PlayArrowOutlined$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                                                         fileName: "[project]/src/app/components/HomeView.tsx",
-                                                        lineNumber: 140,
+                                                        lineNumber: 139,
                                                         columnNumber: 40
                                                     }, void 0),
                                                     children: "REPRODUCIR"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/components/HomeView.tsx",
-                                                    lineNumber: 140,
+                                                    lineNumber: 139,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$components$2f$styles$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ListButton"], {
                                                     startIcon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$icons$2d$material$2f$esm$2f$Add$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                                                         fileName: "[project]/src/app/components/HomeView.tsx",
-                                                        lineNumber: 143,
+                                                        lineNumber: 142,
                                                         columnNumber: 40
                                                     }, void 0),
                                                     children: "MI LISTA"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/components/HomeView.tsx",
-                                                    lineNumber: 143,
+                                                    lineNumber: 142,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/app/components/HomeView.tsx",
-                                            lineNumber: 136,
+                                            lineNumber: 135,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/app/components/HomeView.tsx",
-                                    lineNumber: 102,
+                                    lineNumber: 101,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/components/HomeView.tsx",
-                                lineNumber: 101,
+                                lineNumber: 100,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/components/HomeView.tsx",
-                        lineNumber: 87,
+                        lineNumber: 86,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PopularMovies$2f$PopularMoviesContainer$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__PopularMoviesContainer__as__PopularMovies$3e$__["PopularMovies"], {}, void 0, false, {
                         fileName: "[project]/src/app/components/HomeView.tsx",
-                        lineNumber: 150,
+                        lineNumber: 149,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/components/HomeView.tsx",
-                lineNumber: 86,
+                lineNumber: 85,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$AddMovieModal$2f$AddMovieModal$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AddMovieModal"], {
@@ -2187,7 +2187,7 @@ function HomeView() {
                 onClose: handleCloseModal
             }, void 0, false, {
                 fileName: "[project]/src/app/components/HomeView.tsx",
-                lineNumber: 152,
+                lineNumber: 151,
                 columnNumber: 7
             }, this)
         ]
