@@ -15,6 +15,7 @@ import {
   CloseButton,
 } from './styles'
 import { CustomMenuIcon } from '../Header/MenuIcon'
+import { menuAnimation } from './styles'
 
 const MENU_ITEMS = [
   { id: 'inicio', label: 'INICIO' },
@@ -35,24 +36,19 @@ export function Menu({ onAddMovie, MenuIcon = CustomMenuIcon }: MenuProps) {
   const [isOpen, setIsOpen] = useState(false)
 
   const handleAddMovie = () => {
-    setIsOpen(false) // Cerramos el menú
-    onAddMovie() // Abrimos el modal
+    setIsOpen(false)
+    onAddMovie()
   }
 
   return (
     <>
       <MenuButton onClick={() => setIsOpen(true)}>
-        <MenuIcon sx={{ fontSize: 28 }} />
+        <MenuIcon />
       </MenuButton>
 
       <AnimatePresence>
         {isOpen && (
-          <MenuContainer
-            initial={{ x: -380 }}
-            animate={{ x: 0 }}
-            exit={{ x: -380 }}
-            transition={{ type: "spring", damping: 30, stiffness: 300 }}
-          >
+          <MenuContainer {...menuAnimation}>
             <CloseButton onClick={() => setIsOpen(false)}>
               <CloseIcon />
             </CloseButton>

@@ -3,6 +3,64 @@ import { Box, Typography, Select, MenuItem } from '@mui/material'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'
 import { motion } from 'framer-motion'
 
+export const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+}
+
+export const cardVariants = {
+  initial: {
+    scale: 1,
+    filter: 'brightness(1)',
+  },
+  hover: {
+    scale: 1.1,
+    filter: 'brightness(1.2)',
+    zIndex: 2,
+  },
+  sibling: {
+    scale: 0.9,
+    filter: 'brightness(0.6)',
+  },
+}
+
+export const overlayAnimations = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+  transition: { duration: 0.3 },
+}
+
+export const defaultContentAnimations = {
+  initial: { opacity: 1 },
+  exit: { opacity: 0 },
+  transition: { duration: 0.3 },
+}
+
+export const selectMenuProps = {
+  PaperProps: {
+    sx: {
+      backgroundColor: '#171717',
+      borderRadius: '4px',
+      marginTop: '8px',
+      boxShadow: '0 4px 12px rgba(0,0,0,0.5)',
+      '& .MuiList-root': {
+        padding: 0,
+      },
+    },
+  },
+}
+
+export const MotionClickableBox = styled(motion(Box))({
+  transformOrigin: 'center',
+  willChange: 'transform, filter',
+});
+
 export const SidebarContainer = styled(Box)(({ theme }) => ({
   position: 'fixed',
   right: 0,
@@ -42,6 +100,8 @@ export const FilterLabel = styled(Typography)(({ theme }) => ({
   opacity: 0.6,
   fontSize: '18px',
   letterSpacing: '4px',
+  lineHeight: '18px',
+  fontWeight: '400',
 }));
 
 export const StyledSelect = styled(Select)(({ theme }) => ({
@@ -76,6 +136,7 @@ export const StyledSelect = styled(Select)(({ theme }) => ({
 
 export const StyledMenuItem = styled(MenuItem)(({ theme }) => ({
   fontSize: '18px',
+  lineHeight: '18px',
   letterSpacing: '4px',
   padding: '12px 16px',
   backgroundColor: theme.palette.blackLight.darker,

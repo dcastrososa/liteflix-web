@@ -1,5 +1,6 @@
 import { styled } from '@mui/material/styles'
 import { Box, Button, Container, Select, Typography } from '@mui/material'
+import { motion } from 'framer-motion'
 
 export const FullHeightBox = styled(Box)(({ theme }) => ({
   minHeight: '100vh',
@@ -11,15 +12,11 @@ export const FullHeightBox = styled(Box)(({ theme }) => ({
   },
 }));
 
-export const MainContent = styled(Box)(({ theme }) => ({
+export const MainContent = styled(Box)({
   height: '100vh',
   position: 'relative',
   zIndex: 1,
-  [theme.breakpoints.down('md')]: {
-    height: '100vh',
-    minHeight: '600px', // Para asegurar una altura mínima en móviles pequeños
-  },
-}));
+});
 
 export const GradientOverlay = styled(Box)({
   position: 'absolute',
@@ -67,8 +64,7 @@ export const MovieTitle = styled(Typography)(({ theme }) => ({
   textTransform: 'uppercase',
   marginBottom: theme.spacing(4),
   letterSpacing: '16px',
-  fontFamily: "'Bebas Neue', sans-serif",
-  color: theme.palette.primary.main,
+  color: theme.palette.aqua.main,
   maxWidth: '1200px',
   [theme.breakpoints.down('md')]: {
     fontSize: '76px',
@@ -100,10 +96,11 @@ export const PlayButton = styled(Button)(({ theme }) => ({
   color: theme.palette.common.white,
   padding: '16px 48px',
   fontSize: '18px',
-  fontWeight: 'medium',
+  lineHeight: '21.6px',
+  fontWeight: 400,
+  letterSpacing: '4px',
   borderRadius: '0',
   border: `1px solid ${theme.palette.customGrey.main}`,
-  fontFamily: "'Bebas Neue', sans-serif",
   width: '248px',
   height: '56px',
   '&:hover': {
@@ -125,12 +122,13 @@ export const PlayButton = styled(Button)(({ theme }) => ({
 export const ListButton = styled(Button)(({ theme }) => ({
   padding: '16px 48px',
   fontSize: '18px',
-  fontWeight: 'medium',
+  fontWeight: '400',
+  letterSpacing: '4px',
+  lineHeight: '21.6px',
   borderRadius: '0',
   border: `1px solid ${theme.palette.customGrey.main}`,
   color: theme.palette.common.white,
   backgroundColor: 'transparent',
-  fontFamily: "'Bebas Neue', sans-serif",
   width: '248px',
   height: '56px',
   '&:hover': {
@@ -158,4 +156,75 @@ export const ButtonsContainer = styled(Box)(({ theme }) => ({
     maxWidth: '248px',
     alignItems: 'center',
   },
-})); 
+}));
+
+export const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.3,
+    }
+  }
+}
+
+export const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut"
+    }
+  }
+}
+
+export const MotionBox = motion(Box)
+export const MotionTypography = motion(Typography)
+export const MotionMovieTitle = motion(MovieTitle)
+export const MotionButtonsContainer = motion(ButtonsContainer)
+
+export const MovieImage = styled('img')({
+  position: 'absolute',
+  width: '100%',
+  height: '100%',
+  objectFit: 'cover',
+});
+
+export const AnimatedContentBox = styled(MotionBox)(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  width: '100%',
+  [`${theme.breakpoints.up('md')}`]: {
+    alignItems: 'flex-start',
+  },
+  [`${theme.breakpoints.down('md')}`]: {
+    alignItems: 'center',
+  },
+}));
+
+export const MovieSubtitle = styled(MotionTypography)(({ theme }) => ({
+  color: theme.palette.common.white,
+  marginBottom: theme.spacing(2),
+  textTransform: 'uppercase',
+  letterSpacing: '4px',
+  opacity: 0.8,
+  fontSize: '20px',
+  lineHeight: '20px',
+  [`${theme.breakpoints.up('md')}`]: {
+    textAlign: 'left',
+  },
+  [`${theme.breakpoints.down('md')}`]: {
+    textAlign: 'center',
+  },
+}));
+
+export const BoldText = styled('span')({
+  fontWeight: 700,
+});
+
+export const NormalText = styled('span')({
+  fontWeight: 400,
+}); 

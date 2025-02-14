@@ -1,31 +1,43 @@
 import { styled } from '@mui/material/styles'
-import { Box, Button, IconButton, TextField } from '@mui/material'
+import { Box, Button, IconButton, TextField, Typography } from '@mui/material'
 import { motion } from 'framer-motion'
 
-export const ModalContainer = styled(motion(Box))(() => ({
+export const modalContainerAnimation = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+}
+
+export const modalContentAnimation = {
+  initial: { y: 20, opacity: 0 },
+  animate: { y: 0, opacity: 1 },
+  exit: { y: 20, opacity: 0 },
+}
+
+export const ModalContainer = styled(motion(Box))({
   position: 'fixed',
   top: 0,
   left: 0,
   right: 0,
   bottom: 0,
-  backgroundColor: 'rgba(0, 0, 0, 0.8)',
+  backgroundColor: 'rgba(0, 0, 0, 0.5)',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  zIndex: 1200,
-}));
+  zIndex: 1000,
+});
 
 export const ModalContent = styled(motion(Box))(({ theme }) => ({
-  width: '100%',
-  maxWidth: '1000px',
-  minHeight: '440px',
   backgroundColor: theme.palette.blackLight.main,
   padding: '72px 48px',
   position: 'relative',
+  width: '100%',
+  maxWidth: '730px',
+  margin: theme.spacing(0, 2),
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  gap: '72px',
+  gap: '48px',
 }));
 
 export const ModalTitle = styled(Box)(({ theme }) => ({
@@ -33,7 +45,7 @@ export const ModalTitle = styled(Box)(({ theme }) => ({
   fontSize: '20px',
   letterSpacing: '4px',
   textAlign: 'center',
-  marginBottom: '48px',
+  textTransform: 'uppercase',
 }));
 
 export const CloseButton = styled(IconButton)(({ theme }) => ({
@@ -45,15 +57,14 @@ export const CloseButton = styled(IconButton)(({ theme }) => ({
 
 export const DropZone = styled(Box)(({ theme }) => ({
   width: '100%',
-  maxWidth: '800px',
-  height: '250px',
+  height: '90px',
   border: `2px dashed ${theme.palette.customGrey.main}`,
-  borderRadius: '4px',
+  borderRadius: '0',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
-  gap: '24px',
+  gap: '16px',
   cursor: 'pointer',
   padding: '24px',
   transition: 'background-color 0.3s ease',
@@ -62,7 +73,7 @@ export const DropZone = styled(Box)(({ theme }) => ({
   },
   '& .MuiSvgIcon-root': {
     color: theme.palette.common.white,
-    fontSize: '48px',
+    fontSize: '24px',
     transform: 'rotate(45deg)',
   },
 }));
@@ -178,4 +189,24 @@ export const CancelButton = styled(Button)(({ theme }) => ({
     backgroundColor: 'transparent',
     opacity: 0.8,
   },
+}));
+
+export const SuccessTitle = styled(Typography)(({ theme }) => ({
+  color: theme.palette.common.white,
+  textAlign: 'center',
+  letterSpacing: '4px',
+  marginBottom: theme.spacing(2),
+}));
+
+export const SuccessMessage = styled(Typography)(({ theme }) => ({
+  color: theme.palette.common.white,
+  textAlign: 'center',
+  letterSpacing: '4px',
+  marginBottom: theme.spacing(4),
+}));
+
+export const ErrorMessage = styled(Typography)(({ theme }) => ({
+  color: theme.palette.error.main,
+  textAlign: 'center',
+  marginTop: theme.spacing(2),
 })); 

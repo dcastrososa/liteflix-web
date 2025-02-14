@@ -24,6 +24,9 @@ import {
   MovieInfoBottom,
   MovieImage,
   StyledMenuItem,
+  selectMenuProps,
+  defaultContentAnimations,
+  overlayAnimations,
 } from './styles'
 import { usePopularMovies, useMyMovies } from '@/hooks/useMovies'
 import { PopularMoviesSkeleton } from '../Skeletons/PopularMoviesSkeleton'
@@ -113,19 +116,7 @@ export default function PopularMovies() {
           onChange={handleOptionChange}
           variant="standard"
           IconComponent={KeyboardArrowDownIcon}
-          MenuProps={{
-            PaperProps: {
-              sx: {
-                backgroundColor: '#171717',
-                borderRadius: '4px',
-                marginTop: '8px',
-                boxShadow: '0 4px 12px rgba(0,0,0,0.5)',
-                '& .MuiList-root': {
-                  padding: 0,
-                },
-              },
-            },
-          }}
+          MenuProps={selectMenuProps}
         >
           <StyledMenuItem value="POPULARES">POPULARES</StyledMenuItem>
           <StyledMenuItem value="MIS_PELICULAS">MIS PELÍCULAS</StyledMenuItem>
@@ -144,10 +135,6 @@ export default function PopularMovies() {
             animate={getCardState(movie.id)}
             onMouseEnter={() => handleMouseEnter(movie.id)}
             onMouseLeave={handleMouseLeave}
-            style={{
-              transformOrigin: 'center',
-              willChange: 'transform, filter',
-            }}
           >
             <MovieImage
               src={movie.posterUrl}
@@ -156,11 +143,7 @@ export default function PopularMovies() {
             />
             <AnimatePresence>
               {hoveredId !== movie.id && (
-                <DefaultContent
-                  initial={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                >
+                <DefaultContent {...defaultContentAnimations}>
                   <PlayIcon className="play-icon" />
                   <MovieTitle className="movie-title">{movie.originalTitle}</MovieTitle>
                 </DefaultContent>
@@ -169,12 +152,7 @@ export default function PopularMovies() {
 
             <AnimatePresence>
               {hoveredId === movie.id && (
-                <MovieOverlay
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                >
+                <MovieOverlay {...overlayAnimations}>
                   <MovieInfo>
                     <MovieInfoTop>
                       <PlayIcon />

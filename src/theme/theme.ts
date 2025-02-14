@@ -1,39 +1,39 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles'
 
 declare module '@mui/material/styles' {
   interface Palette {
-    aqua: {
-      main: string;
-    };
+    aqua: Palette['primary']
     blackLight: {
-      main: string;
-      darker: string;
-    };
+      main: string
+      darker: string
+    }
     customGrey: {
-      main: string;
-      transparent: string;
-    };
+      main: string
+      transparent: string
+    }
   }
+
   interface PaletteOptions {
-    aqua: {
-      main: string;
-    };
-    blackLight: {
-      main: string;
-      darker: string;
-    };
-    customGrey: {
-      main: string;
-      transparent: string;
-    };
+    aqua?: PaletteOptions['primary']
+    blackLight?: {
+      main: string
+      darker: string
+    }
+    customGrey?: {
+      main: string
+      transparent: string
+    }
   }
 }
 
 export const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#64EEBC',
+  typography: {
+    fontFamily: 'var(--font-bebas-neue)',
+    allVariants: {
+      fontFamily: 'var(--font-bebas-neue)',
     },
+  },
+  palette: {
     aqua: {
       main: '#64EEBC',
     },
@@ -42,31 +42,31 @@ export const theme = createTheme({
       darker: '#171717',
     },
     customGrey: {
-      main: 'rgba(255, 255, 255, 0.6)',
-      transparent: 'rgba(255, 255, 255, 0.1)',
+      main: '#FFFFFF',
+      transparent: 'rgba(255, 255, 255, 0.5)',
     },
-    common: {
-      black: '#242424',
-      white: '#FFFFFF',
-    },
-  },
-  typography: {
-    fontFamily: "'Bebas Neue', sans-serif",
   },
   components: {
     MuiButton: {
       styleOverrides: {
         root: {
-          fontFamily: "'Bebas Neue', sans-serif",
+          fontFamily: 'var(--font-bebas-neue)',
         },
       },
     },
     MuiTypography: {
       styleOverrides: {
         root: {
-          fontFamily: "'Bebas Neue', sans-serif",
+          fontFamily: 'var(--font-bebas-neue)',
+        },
+      },
+    },
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          fontFamily: 'var(--font-bebas-neue)',
         },
       },
     },
   },
-});
+}) 

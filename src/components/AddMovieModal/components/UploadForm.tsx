@@ -1,5 +1,10 @@
-import { Typography } from "@mui/material";
-import { DropZone, DropZoneText, UploadButton, MovieTitleInput } from "../styles";
+import { 
+  DropZone,
+  DropZoneText,
+  MovieTitleInput,
+  UploadButton,
+  ErrorMessage,
+} from '../styles'
 import AttachFileIcon from '@mui/icons-material/AttachFile'
 import { DropzoneRootProps, DropzoneInputProps } from 'react-dropzone';
 
@@ -34,15 +39,9 @@ export function UploadForm({
       </DropZone>
 
       {error && (
-        <Typography
-          sx={{
-            color: 'error.main',
-            textAlign: 'center',
-            mt: 2,
-          }}
-        >
+        <ErrorMessage>
           {error}
-        </Typography>
+        </ErrorMessage>
       )}
 
       <MovieTitleInput

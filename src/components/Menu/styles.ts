@@ -2,12 +2,25 @@ import { styled } from '@mui/material/styles'
 import { Box, Button, Typography, IconButton } from '@mui/material'
 import { motion } from 'framer-motion'
 
-export const MenuButton = styled(IconButton)({
-  color: 'white',
-  '& .MuiSvgIcon-root': {
-    fontSize: '24px',
+export const menuAnimation = {
+  initial: { x: -380 },
+  animate: { x: 0 },
+  exit: { x: -380 },
+  transition: { 
+    type: "spring", 
+    damping: 30, 
+    stiffness: 300 
+  }
+};
+
+export const MenuButton = styled(Button)(({ theme }) => ({
+  color: theme.palette.common.white,
+  padding: 0,
+  minWidth: 'auto',
+  '&:hover': {
+    backgroundColor: 'transparent',
   },
-});
+}));
 
 export const MenuTitle = styled(Typography)({
   fontSize: '18px',
@@ -15,16 +28,16 @@ export const MenuTitle = styled(Typography)({
   opacity: 0.8,
 });
 
-export const MenuContainer = motion(styled(Box)(({ theme }) => ({
+export const MenuContainer = styled(motion(Box))(({ theme }) => ({
   position: 'fixed',
   top: 0,
   left: 0,
   width: '380px',
   height: '100vh',
   backgroundColor: theme.palette.blackLight.main,
-  zIndex: 1000,
-  boxShadow: '4px 0 12px rgba(0,0,0,0.5)',
-})));
+  zIndex: 100,
+  padding: '32px',
+}));
 
 export const MenuContent = styled(Box)({
   padding: '120px 40px 40px',

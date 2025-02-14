@@ -10,6 +10,7 @@ __turbopack_esm__({
     "DefaultContent": (()=>DefaultContent),
     "FilterHeader": (()=>FilterHeader),
     "FilterLabel": (()=>FilterLabel),
+    "MotionClickableBox": (()=>MotionClickableBox),
     "MovieCardContainer": (()=>MovieCardContainer),
     "MovieImage": (()=>MovieImage),
     "MovieInfo": (()=>MovieInfo),
@@ -24,19 +25,92 @@ __turbopack_esm__({
     "SidebarContainer": (()=>SidebarContainer),
     "StyledMenuItem": (()=>StyledMenuItem),
     "StyledSelect": (()=>StyledSelect),
-    "Year": (()=>Year)
+    "Year": (()=>Year),
+    "cardVariants": (()=>cardVariants),
+    "container": (()=>container),
+    "defaultContentAnimations": (()=>defaultContentAnimations),
+    "overlayAnimations": (()=>overlayAnimations),
+    "selectMenuProps": (()=>selectMenuProps)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$styles$2f$styled$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__$3c$export__default__as__styled$3e$__ = __turbopack_import__("[project]/node_modules/@mui/material/styles/styled.js [app-client] (ecmascript) <locals> <export default as styled>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Box$2f$Box$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Box$3e$__ = __turbopack_import__("[project]/node_modules/@mui/material/Box/Box.js [app-client] (ecmascript) <export default as Box>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Typography$2f$Typography$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Typography$3e$__ = __turbopack_import__("[project]/node_modules/@mui/material/Typography/Typography.js [app-client] (ecmascript) <export default as Typography>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Select$2f$Select$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Select$3e$__ = __turbopack_import__("[project]/node_modules/@mui/material/Select/Select.js [app-client] (ecmascript) <export default as Select>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$MenuItem$2f$MenuItem$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__MenuItem$3e$__ = __turbopack_import__("[project]/node_modules/@mui/material/MenuItem/MenuItem.js [app-client] (ecmascript) <export default as MenuItem>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$icons$2d$material$2f$esm$2f$PlayArrow$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/@mui/icons-material/esm/PlayArrow.js [app-client] (ecmascript)");
 ;
 ;
 ;
 ;
+const container = {
+    hidden: {
+        opacity: 0
+    },
+    show: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1
+        }
+    }
+};
+const cardVariants = {
+    initial: {
+        scale: 1,
+        filter: 'brightness(1)'
+    },
+    hover: {
+        scale: 1.1,
+        filter: 'brightness(1.2)',
+        zIndex: 2
+    },
+    sibling: {
+        scale: 0.9,
+        filter: 'brightness(0.6)'
+    }
+};
+const overlayAnimations = {
+    initial: {
+        opacity: 0
+    },
+    animate: {
+        opacity: 1
+    },
+    exit: {
+        opacity: 0
+    },
+    transition: {
+        duration: 0.3
+    }
+};
+const defaultContentAnimations = {
+    initial: {
+        opacity: 1
+    },
+    exit: {
+        opacity: 0
+    },
+    transition: {
+        duration: 0.3
+    }
+};
+const selectMenuProps = {
+    PaperProps: {
+        sx: {
+            backgroundColor: '#171717',
+            borderRadius: '4px',
+            marginTop: '8px',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.5)',
+            '& .MuiList-root': {
+                padding: 0
+            }
+        }
+    }
+};
+const MotionClickableBox = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$styles$2f$styled$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__$3c$export__default__as__styled$3e$__["styled"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Box$2f$Box$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Box$3e$__["Box"]))({
+    transformOrigin: 'center',
+    willChange: 'transform, filter'
+});
 const SidebarContainer = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$styles$2f$styled$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__$3c$export__default__as__styled$3e$__["styled"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Box$2f$Box$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Box$3e$__["Box"])(({ theme })=>({
         position: 'fixed',
         right: 0,
@@ -73,7 +147,9 @@ const FilterLabel = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_mod
         color: theme.palette.common.white,
         opacity: 0.6,
         fontSize: '18px',
-        letterSpacing: '4px'
+        letterSpacing: '4px',
+        lineHeight: '18px',
+        fontWeight: '400'
     }));
 const StyledSelect = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$styles$2f$styled$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__$3c$export__default__as__styled$3e$__["styled"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$Select$2f$Select$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Select$3e$__["Select"])(({ theme })=>({
         color: theme.palette.common.white,
@@ -106,6 +182,7 @@ const StyledSelect = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_mo
     }));
 const StyledMenuItem = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$styles$2f$styled$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__$3c$export__default__as__styled$3e$__["styled"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$material$2f$MenuItem$2f$MenuItem$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__MenuItem$3e$__["MenuItem"])(({ theme })=>({
         fontSize: '18px',
+        lineHeight: '18px',
         letterSpacing: '4px',
         padding: '12px 16px',
         backgroundColor: theme.palette.blackLight.darker,
@@ -533,7 +610,7 @@ function PopularMovies() {
     if (isLoading) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$Skeletons$2f$PopularMoviesSkeleton$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["PopularMoviesSkeleton"], {}, void 0, false, {
             fileName: "[project]/src/components/PopularMovies/PopularMovies.tsx",
-            lineNumber: 104,
+            lineNumber: 107,
             columnNumber: 12
         }, this);
     }
@@ -545,7 +622,7 @@ function PopularMovies() {
                         children: "VER:"
                     }, void 0, false, {
                         fileName: "[project]/src/components/PopularMovies/PopularMovies.tsx",
-                        lineNumber: 110,
+                        lineNumber: 113,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PopularMovies$2f$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["StyledSelect"], {
@@ -553,26 +630,14 @@ function PopularMovies() {
                         onChange: handleOptionChange,
                         variant: "standard",
                         IconComponent: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$mui$2f$icons$2d$material$2f$esm$2f$KeyboardArrowDown$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"],
-                        MenuProps: {
-                            PaperProps: {
-                                sx: {
-                                    backgroundColor: '#171717',
-                                    borderRadius: '4px',
-                                    marginTop: '8px',
-                                    boxShadow: '0 4px 12px rgba(0,0,0,0.5)',
-                                    '& .MuiList-root': {
-                                        padding: 0
-                                    }
-                                }
-                            }
-                        },
+                        MenuProps: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PopularMovies$2f$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["selectMenuProps"],
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PopularMovies$2f$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["StyledMenuItem"], {
                                 value: "POPULARES",
                                 children: "POPULARES"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/PopularMovies/PopularMovies.tsx",
-                                lineNumber: 130,
+                                lineNumber: 121,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PopularMovies$2f$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["StyledMenuItem"], {
@@ -580,19 +645,19 @@ function PopularMovies() {
                                 children: "MIS PELÍCULAS"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/PopularMovies/PopularMovies.tsx",
-                                lineNumber: 131,
+                                lineNumber: 122,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/PopularMovies/PopularMovies.tsx",
-                        lineNumber: 111,
+                        lineNumber: 114,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/PopularMovies/PopularMovies.tsx",
-                lineNumber: 109,
+                lineNumber: 112,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(MotionMovieList, {
@@ -604,10 +669,6 @@ function PopularMovies() {
                         animate: getCardState(movie.id),
                         onMouseEnter: ()=>handleMouseEnter(movie.id),
                         onMouseLeave: handleMouseLeave,
-                        style: {
-                            transformOrigin: 'center',
-                            willChange: 'transform, filter'
-                        },
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PopularMovies$2f$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MovieImage"], {
                                 src: movie.posterUrl,
@@ -615,26 +676,18 @@ function PopularMovies() {
                                 loading: "lazy"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/PopularMovies/PopularMovies.tsx",
-                                lineNumber: 152,
+                                lineNumber: 139,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimatePresence"], {
                                 children: hoveredId !== movie.id && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PopularMovies$2f$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DefaultContent"], {
-                                    initial: {
-                                        opacity: 1
-                                    },
-                                    exit: {
-                                        opacity: 0
-                                    },
-                                    transition: {
-                                        duration: 0.3
-                                    },
+                                    ...__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PopularMovies$2f$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["defaultContentAnimations"],
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PopularMovies$2f$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["PlayIcon"], {
                                             className: "play-icon"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/PopularMovies/PopularMovies.tsx",
-                                            lineNumber: 164,
+                                            lineNumber: 147,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PopularMovies$2f$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MovieTitle"], {
@@ -642,54 +695,43 @@ function PopularMovies() {
                                             children: movie.originalTitle
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/PopularMovies/PopularMovies.tsx",
-                                            lineNumber: 165,
+                                            lineNumber: 148,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/PopularMovies/PopularMovies.tsx",
-                                    lineNumber: 159,
+                                    lineNumber: 146,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/components/PopularMovies/PopularMovies.tsx",
-                                lineNumber: 157,
+                                lineNumber: 144,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimatePresence"], {
                                 children: hoveredId === movie.id && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PopularMovies$2f$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MovieOverlay"], {
-                                    initial: {
-                                        opacity: 0
-                                    },
-                                    animate: {
-                                        opacity: 1
-                                    },
-                                    exit: {
-                                        opacity: 0
-                                    },
-                                    transition: {
-                                        duration: 0.3
-                                    },
+                                    ...__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PopularMovies$2f$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["overlayAnimations"],
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PopularMovies$2f$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MovieInfo"], {
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PopularMovies$2f$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MovieInfoTop"], {
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PopularMovies$2f$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["PlayIcon"], {}, void 0, false, {
                                                         fileName: "[project]/src/components/PopularMovies/PopularMovies.tsx",
-                                                        lineNumber: 180,
+                                                        lineNumber: 158,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PopularMovies$2f$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MovieTitle"], {
                                                         children: movie.originalTitle
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/PopularMovies/PopularMovies.tsx",
-                                                        lineNumber: 181,
+                                                        lineNumber: 159,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/PopularMovies/PopularMovies.tsx",
-                                                lineNumber: 179,
+                                                lineNumber: 157,
                                                 columnNumber: 21
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PopularMovies$2f$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["MovieInfoBottom"], {
@@ -700,60 +742,60 @@ function PopularMovies() {
                                                                 className: "star-icon"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/PopularMovies/PopularMovies.tsx",
-                                                                lineNumber: 185,
+                                                                lineNumber: 163,
                                                                 columnNumber: 25
                                                             }, this),
                                                             movie.voteAverage
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/components/PopularMovies/PopularMovies.tsx",
-                                                        lineNumber: 184,
+                                                        lineNumber: 162,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$PopularMovies$2f$styles$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Year"], {
                                                         children: movie.releaseDate
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/PopularMovies/PopularMovies.tsx",
-                                                        lineNumber: 188,
+                                                        lineNumber: 166,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/PopularMovies/PopularMovies.tsx",
-                                                lineNumber: 183,
+                                                lineNumber: 161,
                                                 columnNumber: 21
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/PopularMovies/PopularMovies.tsx",
-                                        lineNumber: 178,
+                                        lineNumber: 156,
                                         columnNumber: 19
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/PopularMovies/PopularMovies.tsx",
-                                    lineNumber: 172,
+                                    lineNumber: 155,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/components/PopularMovies/PopularMovies.tsx",
-                                lineNumber: 170,
+                                lineNumber: 153,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, movie.id, true, {
                         fileName: "[project]/src/components/PopularMovies/PopularMovies.tsx",
-                        lineNumber: 141,
+                        lineNumber: 132,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/src/components/PopularMovies/PopularMovies.tsx",
-                lineNumber: 135,
+                lineNumber: 126,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/PopularMovies/PopularMovies.tsx",
-        lineNumber: 108,
+        lineNumber: 111,
         columnNumber: 5
     }, this);
 }

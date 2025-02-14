@@ -1,5 +1,9 @@
-import { Typography } from "@mui/material";
-import { LoadingContainer, UploadButton } from "../styles";
+import { 
+  LoadingContainer, 
+  UploadButton,
+  SuccessTitle,
+  SuccessMessage,
+} from "../styles";
 
 interface SuccessViewProps {
   movieTitle: string;
@@ -9,27 +13,12 @@ interface SuccessViewProps {
 export function SuccessView({ movieTitle, onClose }: SuccessViewProps) {
   return (
     <LoadingContainer>
-      <Typography
-        variant="h6"
-        sx={{
-          color: 'common.white',
-          textAlign: 'center',
-          letterSpacing: '4px',
-          mb: 2,
-        }}
-      >
+      <SuccessTitle variant="h6">
         ¡FELICITACIONES!
-      </Typography>
-      <Typography
-        sx={{
-          color: 'common.white',
-          textAlign: 'center',
-          letterSpacing: '4px',
-          mb: 4,
-        }}
-      >
+      </SuccessTitle>
+      <SuccessMessage>
         {movieTitle} FUE CORRECTAMENTE SUBIDA.
-      </Typography>
+      </SuccessMessage>
       <UploadButton onClick={onClose}>
         IR A HOME
       </UploadButton>

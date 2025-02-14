@@ -16,6 +16,7 @@ import { UploadForm } from './components/UploadForm'
 import { UploadProgress } from './components/UploadProgress'
 import { SuccessView } from './components/SuccessView'
 import { AxiosError } from 'axios'
+import { modalContainerAnimation, modalContentAnimation } from './styles'
 
 interface AddMovieModalProps {
   isOpen: boolean
@@ -100,14 +101,10 @@ export function AddMovieModal({ isOpen, onClose }: AddMovieModalProps) {
     <AnimatePresence>
       {isOpen && (
         <ModalContainer
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+          {...modalContainerAnimation}
         >
           <ModalContent
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: 20, opacity: 0 }}
+            {...modalContentAnimation}
           >
             <CloseButton onClick={handleClose}>
               <CloseIcon />
