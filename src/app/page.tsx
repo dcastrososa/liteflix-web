@@ -1,5 +1,8 @@
-import { HomeView } from './components/HomeView'
+'use client'
 
-export default function HomePage() {
-  return <HomeView />
+import { HomePage } from '@/components/HomePage/HomePage'
+
+export default function Page() {
+  return <HomePage />
+
 }

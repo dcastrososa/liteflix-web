@@ -1,7 +1,6 @@
 'use client'
 
 import { Skeleton } from '@mui/material'
-import { ButtonsContainer } from '@/app/components/styles'
 import {
   SkeletonContainer,
   GradientOverlay,
@@ -12,14 +11,15 @@ import {
   subtitleSkeletonStyles,
   buttonSkeletonStyles,
 } from './styles'
+import { ButtonsContainer } from '@/components/HomePage/styles'
 
 export function MovieSkeleton() {
   return (
     <SkeletonContainer>
-      <Skeleton 
-        variant="rectangular" 
-        width="100%" 
-        height="100%" 
+      <Skeleton
+        variant="rectangular"
+        width="100%"
+        height="100%"
         animation="wave"
         sx={mainSkeletonStyles}
       />

@@ -16,8 +16,8 @@ import {
   AvatarImage,
 } from './styles'
 import { CustomMenuIcon } from './MenuIcon'
-import { BoldText } from '@/app/components/styles'
-import { NormalText } from '@/app/components/styles'
+import { BoldText } from '@/components/HomePage/styles'
+import { NormalText } from '@/components/HomePage/styles'
 
 interface HeaderProps {
   onAddMovie: () => void

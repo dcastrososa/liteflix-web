@@ -27,7 +27,7 @@ import { AddMovieModal } from '@/components/AddMovieModal/AddMovieModal'
 import { useNowPlayingMovie } from '@/hooks/useMovies'
 import { MovieSkeleton } from '@/components/Skeletons/MovieSkeleton'
 
-export function HomeView() {
+export function HomePage() {
   const [isAddMovieModalOpen, setIsAddMovieModalOpen] = useState(false)
 
   const handleOpenModal = () => setIsAddMovieModalOpen(true)

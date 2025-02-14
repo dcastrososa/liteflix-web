@@ -2,19 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Providers } from './providers'
 import ThemeRegistry from '@/components/ThemeRegistry/ThemeRegistry'
-import { bebasNeue } from './fonts/localFonts'
-
-// const geist = Geist({
-//   subsets: ["latin"],
-// });
-
-// const bebasNeue = Bebas_Neue({
-//   weight: '400',
-//   subsets: ['latin'],
-//   display: 'swap',
-//   variable: '--font-bebas-neue',
-//   style: ['normal'],
-// })
+import { bebasNeue } from '@/fonts/localFonts'
 
 export const metadata: Metadata = {
   title: "Liteflix",
