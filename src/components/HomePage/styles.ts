@@ -10,12 +10,18 @@ export const FullHeightBox = styled(Box)(({ theme }) => ({
     display: 'flex',
     flexDirection: 'column',
   },
+  '@media (max-height: 700px)': {
+    minHeight: '100%',
+  },
 }));
 
 export const MainContent = styled(Box)({
   height: '100vh',
   position: 'relative',
   zIndex: 1,
+  '@media (max-height: 700px)': {
+    height: '600px',
+  },
 });
 
 export const GradientOverlay = styled(Box)({
@@ -54,6 +60,10 @@ export const ContentContainer = styled(Container)(({ theme }) => ({
     textAlign: 'center',
     padding: theme.spacing(2),
     paddingBottom: theme.spacing(4),
+  },
+  '@media (max-height: 700px)': {
+    paddingBottom: theme.spacing(8),
+    justifyContent: 'center',
   },
 }));
 
@@ -156,6 +166,9 @@ export const ButtonsContainer = styled(Box)(({ theme }) => ({
     maxWidth: '248px',
     alignItems: 'center',
   },
+  '@media (max-height: 700px)': {
+    gap: theme.spacing(2),
+  },
 }));
 
 export const container = {
@@ -183,7 +196,32 @@ export const item = {
 
 export const MotionBox = motion(Box)
 export const MotionTypography = motion(Typography)
-export const MotionMovieTitle = motion(MovieTitle)
+export const MotionMovieTitle = styled(motion(Box))(({ theme }) => ({
+  color: theme.palette.aqua.main,
+  fontSize: '120px',
+  letterSpacing: '16px',
+  lineHeight: '120px',
+  textTransform: 'uppercase',
+  textAlign: 'center',
+  marginBottom: '24px',
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '56px',
+    letterSpacing: '8px',
+    lineHeight: '56px',
+    marginBottom: '16px',
+  },
+  '@media (max-width: 360px)': {
+    fontSize: '48px',
+    letterSpacing: '6px',
+    lineHeight: '48px',
+  },
+  '@media (max-height: 700px)': {
+    fontSize: '72px',
+    lineHeight: '72px',
+    letterSpacing: '10px',
+    marginBottom: '16px',
+  },
+}));
 export const MotionButtonsContainer = motion(ButtonsContainer)
 
 export const MovieImage = styled('img')({
@@ -213,6 +251,10 @@ export const MovieSubtitle = styled(MotionTypography)(({ theme }) => ({
   opacity: 0.8,
   fontSize: '20px',
   lineHeight: '20px',
+  '@media (max-height: 700px)': {
+    fontSize: '18px',
+    marginBottom: theme.spacing(1),
+  },
   [`${theme.breakpoints.up('md')}`]: {
     textAlign: 'left',
   },

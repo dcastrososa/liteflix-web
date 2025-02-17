@@ -200,6 +200,9 @@ export const MovieTitle = styled(Typography)(({ theme }) => ({
   textTransform: 'uppercase',
   width: '100%',
   padding: '0 16px',
+  whiteSpace: 'nowrap',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
 }));
 
 export const PlayIcon = styled(PlayArrowIcon)(({ theme }) => ({

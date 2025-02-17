@@ -4,9 +4,18 @@ import {
   MovieTitleInput,
   UploadButton,
   ErrorMessage,
+  LoadingContainer,
+  LoadingText,
+  ProgressBar,
+  Progress,
+  RetryButton,
+  ErrorHeader,
 } from '../styles'
 import AttachFileIcon from '@mui/icons-material/AttachFile'
 import { DropzoneRootProps, DropzoneInputProps } from 'react-dropzone';
+import { ErrorView } from './ErrorView'
+import { ModalLayout } from './Layout'
+import { MovieForm } from './MovieForm'
 
 interface UploadFormProps {
   file: File | null;
@@ -15,6 +24,7 @@ interface UploadFormProps {
   onDrop: (files: File[]) => void;
   onTitleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onSubmit: () => void;
+  onRetry: () => void;
   getRootProps: () => DropzoneRootProps;
   getInputProps: () => DropzoneInputProps;
 }
@@ -25,41 +35,36 @@ export function UploadForm({
   error,
   onTitleChange,
   onSubmit,
+  onRetry,
   getRootProps,
   getInputProps,
 }: UploadFormProps) {
+  if (error) {
+    return <ErrorView movieTitle={movieTitle} onRetry={onRetry} error={error} />;
+  }
+
   return (
-    <>
-      <DropZone {...getRootProps()}>
-        <input {...getInputProps()} />
-        <AttachFileIcon />
-        <DropZoneText>
-          {file ? file.name : 'AGREGÁ UN ARCHIVO O ARRASTRALO Y SOLTALO AQUÍ'}
-        </DropZoneText>
-      </DropZone>
-
-      {error && (
-        <ErrorMessage>
-          {error}
-        </ErrorMessage>
-      )}
-
-      <MovieTitleInput
-        placeholder="TÍTULO"
-        value={movieTitle}
-        onChange={onTitleChange}
-        variant="standard"
-        InputProps={{
-          disableUnderline: true,
-        }}
-      />
-
-      <UploadButton 
-        disabled={!file || !movieTitle}
-        onClick={onSubmit}
-      >
-        SUBIR PELÍCULA
-      </UploadButton>
-    </>
-  )
+    <ModalLayout
+      header={null}
+      content={
+        <DropZone {...getRootProps()}>
+          <input {...getInputProps()} />
+          <AttachFileIcon />
+          <DropZoneText className="desktop-text">
+            {file ? file.name : 'AGREGÁ UN ARCHIVO O ARRASTRALO Y SOLTALO AQUÍ'}
+          </DropZoneText>
+          <DropZoneText className="mobile-text">
+            {file ? file.name : 'AGREGA UN ARCHIVO'}
+          </DropZoneText>
+        </DropZone>
+      }
+      footer={
+        <MovieForm 
+          movieTitle={movieTitle}
+          onChange={onTitleChange}
+          onSubmit={onSubmit}
+        />
+      }
+    />
+  );
 } 

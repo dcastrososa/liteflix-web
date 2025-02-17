@@ -1,34 +1,31 @@
-import { Typography } from "@mui/material";
-import { theme } from "@/theme/theme";
-import { LoadingContainer, Progress, ProgressBar, LoadingText, CancelButton } from "../styles";
+import { LoadingContainer, Progress, ProgressBar, LoadingText } from "../styles";
+import { MovieForm } from './MovieForm';
+import { ModalLayout } from './Layout';
 
 interface UploadProgressProps {
   progress: number;
-  onCancel: () => void;
+  movieTitle: string;
 }
 
-export function UploadProgress({ progress, onCancel }: UploadProgressProps) {
+export function UploadProgress({ progress, movieTitle }: UploadProgressProps) {
   return (
-    <LoadingContainer>
-      <LoadingText>{progress}% CARGADO</LoadingText>
-      <ProgressBar>
-        <Progress progress={progress} />
-      </ProgressBar>
-      {progress === 100 && (
-        <Typography
-          sx={{
-            color: theme.palette.aqua.main,
-            textAlign: 'center',
-            letterSpacing: '4px',
-            mt: 2,
-          }}
-        >
-          ¡LISTO!
-        </Typography>
-      )}
-      <CancelButton onClick={onCancel}>
-        CANCELAR
-      </CancelButton>
-    </LoadingContainer>
-  )
+    <ModalLayout
+      header={
+        <LoadingText>
+          {progress === 100 ? 'LISTO!' : `${progress}% CARGADO`}
+        </LoadingText>
+      }
+      content={
+        <ProgressBar>
+          <Progress progress={progress} />
+        </ProgressBar>
+      }
+      footer={
+        <MovieForm 
+          movieTitle={movieTitle}
+          disabled
+        />
+      }
+    />
+  );
 } 

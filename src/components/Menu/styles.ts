@@ -31,68 +31,74 @@ export const MenuTitle = styled(Typography)({
 export const MenuContainer = styled(motion(Box))(({ theme }) => ({
   position: 'fixed',
   top: 0,
-  left: 0,
-  width: '380px',
+  right: 0,
+  width: '100%',
   height: '100vh',
   backgroundColor: theme.palette.blackLight.main,
-  zIndex: 100,
-  padding: '32px',
+  zIndex: 1000,
+  [theme.breakpoints.up('md')]: {
+    width: '33%',
+    minWidth: '400px',
+  },
+  [theme.breakpoints.down('sm')]: {
+    overflowY: 'auto',
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+  },
 }));
 
-export const MenuContent = styled(Box)({
-  padding: '120px 40px 40px',
+export const MenuContent = styled(Box)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
-  gap: '24px',
-});
+  padding: theme.spacing(12, 6),
+  gap: theme.spacing(3),
+  height: '100%',
+  [theme.breakpoints.down('sm')]: {
+    padding: theme.spacing(8, 4),
+    gap: theme.spacing(2),
+    minHeight: 'min-content',
+  },
+}));
 
-export const MenuItem = styled(Typography)({
-  color: 'white',
+export const MenuItem = styled(Box)(({ theme }) => ({
+  color: theme.palette.common.white,
   fontSize: '22px',
   letterSpacing: '4px',
   cursor: 'pointer',
-  opacity: 0.6,
-  transition: 'opacity 0.2s',
   '&:hover': {
-    opacity: 1,
+    color: theme.palette.aqua.main,
   },
-});
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '16px',
+    letterSpacing: '3px',
+  },
+}));
 
-export const AddMovieButton = styled(Button)({
-  color: 'white',
+export const AddMovieButton = styled(Button)(({ theme }) => ({
+  color: theme.palette.aqua.main,
   fontSize: '18px',
   letterSpacing: '4px',
-  marginTop: '24px',
-  padding: '16px 0',
-  display: 'flex',
-  alignItems: 'center',
-  gap: '12px',
-  justifyContent: 'flex-start',
-  textTransform: 'none',
-  fontWeight: 'bold',
-  '&:hover': {
-    backgroundColor: 'transparent',
-    opacity: 0.8,
-  },
-  '&::before': {
-    content: '"+  "',
-    fontSize: '24px',
-    fontWeight: 'light',
-  }
-});
-
-export const LogoutButton = styled(Button)({
-  color: 'white',
-  fontSize: '18px',
-  letterSpacing: '4px',
-  opacity: 0.6,
   marginTop: 'auto',
-  padding: '16px 0',
-  '&:hover': {
-    opacity: 1,
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+  padding: theme.spacing(2, 0),
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '16px',
+    letterSpacing: '3px',
+    marginTop: theme.spacing(4),
   },
-});
+}));
+
+export const LogoutButton = styled(Button)(({ theme }) => ({
+  color: theme.palette.common.white,
+  fontSize: '18px',
+  letterSpacing: '4px',
+  padding: theme.spacing(2, 0),
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '16px',
+    letterSpacing: '3px',
+    marginBottom: theme.spacing(4),
+  },
+}));
 
 export const CloseButton = styled(IconButton)({
   position: 'absolute',

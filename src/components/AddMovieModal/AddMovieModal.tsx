@@ -17,13 +17,14 @@ import { UploadProgress } from './components/UploadProgress'
 import { SuccessView } from './components/SuccessView'
 import { AxiosError } from 'axios'
 import { modalContainerAnimation, modalContentAnimation } from './styles'
+import { Box } from '@mui/material'
 
 interface AddMovieModalProps {
   isOpen: boolean
   onClose: () => void
 }
 
-const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
+const MAX_FILE_SIZE = 5 * 1024 * 1024;
 const ACCEPTED_FILE_TYPES = {
   'image/jpeg': ['.jpg', '.jpeg'],
   'image/png': ['.png'],
@@ -80,6 +81,10 @@ export function AddMovieModal({ isOpen, onClose }: AddMovieModalProps) {
     }, 300)
   }
 
+  const handleRetry = () => {
+    setError(null);
+  };
+
   const handleSubmit = () => {
     if (!file) {
       setError('Debes seleccionar un poster')
@@ -110,7 +115,13 @@ export function AddMovieModal({ isOpen, onClose }: AddMovieModalProps) {
               <CloseIcon />
             </CloseButton>
             <ModalTitle>
-              {isSuccess ? 'LITEFLIX' : 'AGREGAR PELÍCULA'}
+              {isSuccess ? (
+                <>
+                  <span className="bold">LITE</span>FLIX
+                </>
+              ) : (
+                'AGREGAR PELÍCULA'
+              )}
             </ModalTitle>
 
             {!isLoading && !isSuccess ? (
@@ -121,6 +132,7 @@ export function AddMovieModal({ isOpen, onClose }: AddMovieModalProps) {
                 onDrop={onDrop}
                 onTitleChange={(e) => setMovieTitle(e.target.value)}
                 onSubmit={handleSubmit}
+                onRetry={handleRetry}
                 getRootProps={getRootProps}
                 getInputProps={getInputProps}
               />
@@ -132,7 +144,7 @@ export function AddMovieModal({ isOpen, onClose }: AddMovieModalProps) {
             ) : (
               <UploadProgress
                 progress={uploadProgress}
-                onCancel={handleClose}
+                movieTitle={movieTitle}
               />
             )}
           </ModalContent>

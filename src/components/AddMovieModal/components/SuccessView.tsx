@@ -1,9 +1,11 @@
 import { 
-  LoadingContainer, 
   UploadButton,
   SuccessTitle,
   SuccessMessage,
+  SuccessContainer,
 } from "../styles";
+import { Box } from '@mui/material';
+import { ModalLayout } from "./Layout";
 
 interface SuccessViewProps {
   movieTitle: string;
@@ -12,16 +14,22 @@ interface SuccessViewProps {
 
 export function SuccessView({ movieTitle, onClose }: SuccessViewProps) {
   return (
-    <LoadingContainer>
-      <SuccessTitle variant="h6">
-        ¡FELICITACIONES!
-      </SuccessTitle>
-      <SuccessMessage>
-        {movieTitle} FUE CORRECTAMENTE SUBIDA.
-      </SuccessMessage>
-      <UploadButton onClick={onClose}>
-        IR A HOME
-      </UploadButton>
-    </LoadingContainer>
-  )
+    <ModalLayout
+      header={
+        <SuccessTitle>
+          ¡FELICITACIONES!
+        </SuccessTitle>
+      }
+      content={
+        <SuccessMessage>
+          {movieTitle} FUE CORRECTAMENTE SUBIDA.
+        </SuccessMessage>
+      }
+      footer={
+        <UploadButton onClick={onClose}>
+          IR A HOME
+        </UploadButton>
+      }
+    />
+  );
 } 
