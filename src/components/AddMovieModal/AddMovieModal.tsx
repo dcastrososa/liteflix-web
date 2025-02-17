@@ -17,6 +17,7 @@ import { UploadProgress } from './components/UploadProgress'
 import { SuccessView } from './components/SuccessView'
 import { AxiosError } from 'axios'
 import { modalContainerAnimation, modalContentAnimation } from './styles'
+import type { FileWithPath } from 'react-dropzone'
 
 interface AddMovieModalProps {
   isOpen: boolean
@@ -40,7 +41,9 @@ export function AddMovieModal({ isOpen, onClose }: AddMovieModalProps) {
 
   const { mutate, isPending: isLoading } = useMutation({
     mutationFn: (data: CreateMovieDto) =>
-      moviesApi.create(data, (progress) => setUploadProgress(progress)),
+      moviesApi.create({ 
+        ...data, 
+      }, (progress) => setUploadProgress(progress)),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['movies', 'my-movies'] })
       setIsSuccess(true)
@@ -50,7 +53,7 @@ export function AddMovieModal({ isOpen, onClose }: AddMovieModalProps) {
     },
   })
 
-  const onDrop = useCallback((acceptedFiles: File[]) => {
+  const onDrop = useCallback((acceptedFiles: FileWithPath[]) => {
     const file = acceptedFiles[0]
 
     if (file.size > MAX_FILE_SIZE) {

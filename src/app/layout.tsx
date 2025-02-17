@@ -3,6 +3,7 @@ import "./globals.css";
 import { Providers } from './providers'
 import ThemeRegistry from '@/components/ThemeRegistry/ThemeRegistry'
 import { bebasNeue } from '@/fonts/localFonts'
+import { UserUUIDInitializer } from '@/components/common/UserUUIDInitializer'
 
 export const metadata: Metadata = {
   title: "Liteflix",
@@ -19,6 +20,7 @@ export default function RootLayout({
       <body>
         <ThemeRegistry>
           <Providers>
+            <UserUUIDInitializer />
             {children}
           </Providers>
         </ThemeRegistry>

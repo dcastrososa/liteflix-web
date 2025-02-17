@@ -5,7 +5,8 @@ import { AnimatePresence } from 'framer-motion'
 import { SelectChangeEvent } from '@mui/material'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import StarIcon from '@mui/icons-material/Star'
-
+import { ErrorView } from '@/components/common/ErrorView'
+import { EmptyState } from '@/components/common/EmptyState'
 import {
   SidebarContainer,
   FilterHeader,
@@ -30,17 +31,27 @@ import {
   MotionClickableBox,
   selectMenuProps,
 } from './styles'
-import { usePopularMovies, useMyMovies } from '@/hooks/useMovies'
 import { PopularMoviesSkeleton } from '../Skeletons/PopularMoviesSkeleton'
+import { usePopularMovies, useMyMovies } from '@/hooks/useMovies'
+import { useQueryClient } from '@tanstack/react-query'
 
 export default function PopularMovies() {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
   const [selectedOption, setSelectedOption] = useState<'POPULARES' | 'MIS_PELICULAS'>('POPULARES');
 
-  const { data: popularMovies, isLoading: isLoadingPopular } = usePopularMovies()
-  const { data: myMovies, isLoading: isLoadingMyMovies } = useMyMovies(
-    selectedOption === 'MIS_PELICULAS'
-  )
+  const { 
+    data: popularMovies, 
+    isLoading: isLoadingPopular,
+    error: popularError,
+  } = usePopularMovies()
+
+  const { 
+    data: myMovies, 
+    isLoading: isLoadingMyMovies,
+    error: myMoviesError 
+  } = useMyMovies(selectedOption === 'MIS_PELICULAS')
+
+  const queryClient = useQueryClient()
 
   const movies = useMemo(() => {
     const moviesData = selectedOption === 'POPULARES' ? popularMovies : myMovies
@@ -48,6 +59,7 @@ export default function PopularMovies() {
   }, [selectedOption, popularMovies, myMovies])
 
   const isLoading = isLoadingPopular || isLoadingMyMovies
+  const error = selectedOption === 'POPULARES' ? popularError : myMoviesError
 
   const handleMouseEnter = (id: number) => {
     setHoveredId(id);
@@ -68,6 +80,35 @@ export default function PopularMovies() {
 
   if (isLoading) {
     return <PopularMoviesSkeleton />
+  }
+
+  if (error) {
+    return (
+      <ErrorView 
+        message={
+          selectedOption === 'POPULARES' 
+            ? 'Error al cargar las películas populares' 
+            : 'Error al cargar tus películas'
+        }
+        onRetry={() => {
+          queryClient.invalidateQueries({ 
+            queryKey: ['movies', selectedOption.toLowerCase()] 
+          })
+        }}
+      />
+    )
+  }
+
+  if (!movies?.length) {
+    return (
+      <EmptyState 
+        message={
+          selectedOption === 'POPULARES'
+            ? 'No hay películas populares disponibles'
+            : 'No has agregado ninguna película'
+        }
+      />
+    )
   }
 
   return (
