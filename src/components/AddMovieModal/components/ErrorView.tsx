@@ -1,12 +1,8 @@
-import { error } from 'console';
 import { 
-  LoadingContainer,
-  ErrorHeader,
   LoadingText,
   ProgressBar,
   Progress,
   RetryButton,
-  ProgressBarContainer,
 } from '../styles'
 import { MovieForm } from './MovieForm';
 import { ModalLayout } from './Layout';

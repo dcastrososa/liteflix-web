@@ -302,7 +302,7 @@ export const ErrorTitle = styled(Typography)(({ theme }) => ({
   marginBottom: '24px',
 }));
 
-export const ErrorProgressBar = styled(Box)(({ theme }) => ({
+export const ErrorProgressBar = styled(Box)(() => ({
   width: '602px',
   height: '4px',
   backgroundColor: '#FF0000',

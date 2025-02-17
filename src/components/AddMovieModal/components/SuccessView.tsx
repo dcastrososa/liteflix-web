@@ -2,9 +2,7 @@ import {
   UploadButton,
   SuccessTitle,
   SuccessMessage,
-  SuccessContainer,
 } from "../styles";
-import { Box } from '@mui/material';
 import { ModalLayout } from "./Layout";
 
 interface SuccessViewProps {

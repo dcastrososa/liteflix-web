@@ -1,4 +1,4 @@
-import { LoadingContainer, Progress, ProgressBar, LoadingText } from "../styles";
+import { Progress, ProgressBar, LoadingText } from "../styles";
 import { MovieForm } from './MovieForm';
 import { ModalLayout } from './Layout';
 

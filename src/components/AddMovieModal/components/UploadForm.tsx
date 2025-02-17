@@ -1,15 +1,6 @@
 import { 
   DropZone,
   DropZoneText,
-  MovieTitleInput,
-  UploadButton,
-  ErrorMessage,
-  LoadingContainer,
-  LoadingText,
-  ProgressBar,
-  Progress,
-  RetryButton,
-  ErrorHeader,
 } from '../styles'
 import AttachFileIcon from '@mui/icons-material/AttachFile'
 import { DropzoneRootProps, DropzoneInputProps } from 'react-dropzone';

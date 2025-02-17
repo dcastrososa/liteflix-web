@@ -17,7 +17,6 @@ import { UploadProgress } from './components/UploadProgress'
 import { SuccessView } from './components/SuccessView'
 import { AxiosError } from 'axios'
 import { modalContainerAnimation, modalContentAnimation } from './styles'
-import { Box } from '@mui/material'
 
 interface AddMovieModalProps {
   isOpen: boolean
