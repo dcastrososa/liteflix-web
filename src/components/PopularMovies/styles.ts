@@ -16,17 +16,27 @@ export const container = {
 export const cardVariants = {
   initial: {
     scale: 1,
+    zIndex: 1,
     filter: 'brightness(1)',
   },
   hover: {
     scale: 1.1,
-    filter: 'brightness(1.2)',
     zIndex: 2,
+    filter: 'brightness(1.1)',
+    transition: {
+      duration: 0.3,
+      ease: "easeOut",
+    }
   },
   sibling: {
-    scale: 0.9,
-    filter: 'brightness(0.6)',
-  },
+    scale: 0.95,
+    zIndex: 1,
+    filter: 'brightness(0.7)',
+    transition: {
+      duration: 0.3,
+      ease: "easeOut",
+    }
+  }
 }
 
 export const overlayAnimations = {
@@ -54,121 +64,12 @@ export const selectMenuProps = {
       },
     },
   },
-}
-
-export const MotionClickableBox = styled(motion(Box))({
-  transformOrigin: 'center',
-  willChange: 'transform, filter',
-});
-
-export const SidebarContainer = styled(Box)(({ theme }) => ({
-  position: 'fixed',
-  right: 0,
-  top: 0,
-  height: '100vh',
-  width: '380px',
-  padding: theme.spacing(4),
-  paddingRight: theme.spacing(6),
-  display: 'flex',
-  flexDirection: 'column',
-  zIndex: 10,
-  [theme.breakpoints.down('md')]: {
-    position: 'relative',
-    width: '100%',
-    height: 'auto',
-    padding: theme.spacing(2),
-    marginTop: theme.spacing(4),
-  },
-}));
-
-export const FilterHeader = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'flex-end',
-  gap: '12px',
-  marginBottom: '40px',
-  marginTop: '64px',
-  [theme.breakpoints.down('md')]: {
-    justifyContent: 'center',
-    marginTop: '24px',
-    marginBottom: '24px',
-  },
-}));
-
-export const FilterLabel = styled(Typography)(({ theme }) => ({
-  color: theme.palette.common.white,
-  opacity: 0.6,
-  fontSize: '18px',
-  letterSpacing: '4px',
-  lineHeight: '18px',
-  fontWeight: '400',
-}));
-
-export const StyledSelect = styled(Select)(({ theme }) => ({
-  color: theme.palette.common.white,
-  minWidth: 200,
-  fontSize: '18px',
-  letterSpacing: '4px',
-  fontWeight: 'bold',
-  '& .MuiSelect-select': {
-    padding: '8px 16px',
-    backgroundColor: 'transparent',
-  },
-  '&[aria-expanded="true"] .MuiSelect-select': {
-    backgroundColor: theme.palette.blackLight.darker,
-  },
-  '&:before': {
-    borderColor: 'transparent',
-  },
-  '&:after': {
-    borderColor: 'transparent',
-  },
-  '& .MuiSvgIcon-root': {
-    color: theme.palette.common.white,
-    right: 8,
-    fontSize: '24px',
-    transition: 'transform 0.2s ease',
-  },
-  '&[aria-expanded="true"] .MuiSvgIcon-root': {
-    transform: 'rotate(180deg)',
-  },
-}));
-
-export const StyledMenuItem = styled(MenuItem)(({ theme }) => ({
-  fontSize: '18px',
-  lineHeight: '18px',
-  letterSpacing: '4px',
-  padding: '12px 16px',
-  backgroundColor: theme.palette.blackLight.darker,
-  color: theme.palette.customGrey.main,
-  fontWeight: 'normal',
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  '&:hover': {
-    backgroundColor: theme.palette.blackLight.main,
-  },
-  '&.Mui-selected': {
-    backgroundColor: `${theme.palette.blackLight.darker} !important`,
-    color: theme.palette.common.white,
-    fontWeight: 'bold',
-    '&:hover': {
-      backgroundColor: theme.palette.blackLight.main,
-    },
-    '&::after': {
-      content: '""',
-      width: '24px',
-      height: '24px',
-      backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E")`,
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center',
-      backgroundSize: 'contain',
+  MenuListProps: {
+    sx: {
+      backgroundColor: 'transparent',
     }
-  },
-  '&:not(:last-child)': {
-    borderBottom: `1px solid ${theme.palette.customGrey.transparent}`,
-  },
-}));
+  }
+};
 
 export const MovieList = styled(Box)(({ theme }) => ({
   display: 'flex',
@@ -176,6 +77,7 @@ export const MovieList = styled(Box)(({ theme }) => ({
   gap: '16px',
   flex: 1,
   justifyContent: 'flex-start',
+  alignItems: 'center',
   overflowY: 'auto',
   '&::-webkit-scrollbar': {
     display: 'none'
@@ -188,16 +90,16 @@ export const MovieList = styled(Box)(({ theme }) => ({
   },
 }));
 
-export const ClickableBox = styled('div')(({ theme }) => ({
+export const ClickableBox = styled(Box)({
   position: 'relative',
-  width: '100%',
-  aspectRatio: '16/9',
-  overflow: 'hidden',
   cursor: 'pointer',
+  width: '220px',
+  height: '146px',
+  overflow: 'hidden',
   zIndex: 1,
   borderRadius: '4px',
-  backgroundColor: theme.palette.blackLight.main,
-}));
+  backgroundColor: 'black',
+});
 
 export const MovieImage = styled('img')({
   width: '100%',
@@ -336,4 +238,120 @@ export const MovieCardContainer = styled(Box)({
       transform: 'scale(1.1)',
     }
   }
-}); 
+});
+
+export const MotionMovieList = motion(MovieList)
+export const MotionClickableBox = motion(ClickableBox)
+
+export const SidebarContainer = styled(Box)(({ theme }) => ({
+  position: 'fixed',
+  right: 0,
+  top: 0,
+  height: '100vh',
+  width: '380px',
+  padding: theme.spacing(4),
+  paddingRight: theme.spacing(6),
+  display: 'flex',
+  flexDirection: 'column',
+  zIndex: 10,
+  [theme.breakpoints.down('md')]: {
+    position: 'relative',
+    width: '100%',
+    height: 'auto',
+    padding: theme.spacing(2),
+    marginTop: theme.spacing(4),
+  },
+}));
+
+export const FilterHeader = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'flex-end',
+  gap: '12px',
+  marginBottom: '40px',
+  marginTop: '64px',
+  [theme.breakpoints.down('md')]: {
+    justifyContent: 'center',
+    marginTop: '24px',
+    marginBottom: '24px',
+  },
+}));
+
+export const FilterLabel = styled(Typography)(({ theme }) => ({
+  color: theme.palette.common.white,
+  opacity: 0.6,
+  fontSize: '18px',
+  letterSpacing: '4px',
+  lineHeight: '18px',
+  fontWeight: '400',
+}));
+
+export const StyledSelect = styled(Select)(({ theme }) => ({
+  color: theme.palette.common.white,
+  minWidth: 200,
+  fontSize: '18px',
+  letterSpacing: '4px',
+  fontWeight: 'bold',
+  backgroundColor: 'transparent',
+  '& .MuiSelect-select': {
+    padding: '8px 16px',
+    backgroundColor: 'transparent !important',
+  },
+  '& .MuiSelect-root': {
+    backgroundColor: 'transparent !important',
+  },
+  '& .MuiOutlinedInput-notchedOutline': {
+    border: 'none',
+  },
+  '&.MuiOutlinedInput-root': {
+    backgroundColor: 'transparent !important',
+  },
+  '&:before, &:after': {
+    display: 'none',
+  },
+  '& .MuiSvgIcon-root': {
+    color: theme.palette.common.white,
+    right: 8,
+    fontSize: '24px',
+    transition: 'transform 0.2s ease',
+  },
+  '&[aria-expanded="true"] .MuiSvgIcon-root': {
+    transform: 'rotate(180deg)',
+  },
+}));
+
+export const StyledMenuItem = styled(MenuItem)(({ theme }) => ({
+  fontSize: '18px',
+  lineHeight: '18px',
+  letterSpacing: '4px',
+  padding: '12px 16px',
+  backgroundColor: theme.palette.blackLight.darker,
+  color: theme.palette.customGrey.main,
+  fontWeight: 'normal',
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  '&:hover': {
+    backgroundColor: theme.palette.blackLight.main,
+  },
+  '&.Mui-selected': {
+    backgroundColor: `${theme.palette.blackLight.darker} !important`,
+    color: theme.palette.common.white,
+    fontWeight: 'bold',
+    '&:hover': {
+      backgroundColor: theme.palette.blackLight.main,
+    },
+    '&::after': {
+      content: '""',
+      width: '24px',
+      height: '24px',
+      backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E")`,
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+      backgroundSize: 'contain',
+    }
+  },
+  '&:not(:last-child)': {
+    borderBottom: `1px solid ${theme.palette.customGrey.transparent}`,
+  },
+})); 

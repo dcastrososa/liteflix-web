@@ -1,74 +1,37 @@
 'use client'
 
 import { useState, useMemo } from 'react'
-import StarIcon from '@mui/icons-material/Star'
-import { AnimatePresence, motion } from 'framer-motion'
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
+import { AnimatePresence } from 'framer-motion'
 import { SelectChangeEvent } from '@mui/material'
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
+import StarIcon from '@mui/icons-material/Star'
 
 import {
   SidebarContainer,
   FilterHeader,
   FilterLabel,
   StyledSelect,
-  MovieList,
-  MovieTitle,
-  PlayIcon,
-  MovieInfo,
-  Rating,
-  Year,
+  StyledMenuItem,
+  MovieImage,
   DefaultContent,
   MovieOverlay,
-  ClickableBox,
+  MovieInfo,
   MovieInfoTop,
   MovieInfoBottom,
-  MovieImage,
-  StyledMenuItem,
-  selectMenuProps,
+  MovieTitle,
+  Rating,
+  Year,
+  PlayIcon,
+  container,
+  cardVariants,
   defaultContentAnimations,
   overlayAnimations,
+  MotionMovieList,
+  MotionClickableBox,
+  selectMenuProps,
 } from './styles'
 import { usePopularMovies, useMyMovies } from '@/hooks/useMovies'
 import { PopularMoviesSkeleton } from '../Skeletons/PopularMoviesSkeleton'
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    }
-  }
-}
-
-const cardVariants = {
-  initial: {
-    scale: 1,
-    zIndex: 1,
-    filter: 'brightness(1)',
-  },
-  hover: {
-    scale: 1.1,
-    zIndex: 2,
-    filter: 'brightness(1.1)',
-    transition: {
-      duration: 0.3,
-      ease: "easeOut",
-    }
-  },
-  sibling: {
-    scale: 0.95,
-    zIndex: 1,
-    filter: 'brightness(0.7)',
-    transition: {
-      duration: 0.3,
-      ease: "easeOut",
-    }
-  }
-}
-
-const MotionMovieList = motion(MovieList)
-const MotionClickableBox = motion(ClickableBox)
 
 export default function PopularMovies() {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
@@ -81,7 +44,7 @@ export default function PopularMovies() {
 
   const movies = useMemo(() => {
     const moviesData = selectedOption === 'POPULARES' ? popularMovies : myMovies
-    return moviesData?.slice(0, 5)
+    return moviesData?.slice(0, 4)
   }, [selectedOption, popularMovies, myMovies])
 
   const isLoading = isLoadingPopular || isLoadingMyMovies
