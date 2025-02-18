@@ -2,6 +2,7 @@ import { render, screen, fireEvent } from '@/test/test-utils'
 import '@testing-library/jest-dom'
 import PopularMovies from '../PopularMovies'
 import { usePopularMovies, useMyMovies } from '@/hooks/useMovies'
+import { MovieFilter } from '../types'
 
 
 jest.mock('@/hooks/useMovies', () => ({
@@ -47,7 +48,7 @@ describe('PopularMovies', () => {
     render(<PopularMovies />)
     
     expect(screen.getByText('VER:')).toBeInTheDocument()
-    expect(screen.getByText('POPULARES')).toBeInTheDocument()
+    expect(screen.getByText(MovieFilter.POPULAR)).toBeInTheDocument()
     expect(screen.getByText('Test Movie 1')).toBeInTheDocument()
     expect(screen.getByText('Test Movie 2')).toBeInTheDocument()
   });

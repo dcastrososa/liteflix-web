@@ -34,10 +34,12 @@ import {
 import { PopularMoviesSkeleton } from '../Skeletons/PopularMoviesSkeleton'
 import { usePopularMovies, useMyMovies } from '@/hooks/useMovies'
 import { Box } from '@mui/material'
+import { MovieFilter } from './types'
+import { Movie } from '@/api/movies'
 
 export default function PopularMovies() {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
-  const [selectedOption, setSelectedOption] = useState<'POPULARES' | 'MIS_PELICULAS'>('POPULARES');
+  const [selectedOption, setSelectedOption] = useState<MovieFilter>(MovieFilter.POPULAR);
 
   const { 
     data: popularMovies, 
@@ -51,15 +53,15 @@ export default function PopularMovies() {
     isLoading: isLoadingMyMovies,
     error: myMoviesError,
     refetch: refetchMyMovies,
-  } = useMyMovies(selectedOption === 'MIS_PELICULAS')
+  } = useMyMovies(selectedOption === MovieFilter.MY_MOVIES)
 
   const movies = useMemo(() => {
-    const moviesData = selectedOption === 'POPULARES' ? popularMovies : myMovies
+    const moviesData = selectedOption === MovieFilter.POPULAR ? popularMovies : myMovies
     return moviesData?.slice(0, 4)
   }, [selectedOption, popularMovies, myMovies])
 
   const isLoading = isLoadingPopular || isLoadingMyMovies
-  const error = selectedOption === 'POPULARES' ? popularError : myMoviesError
+  const error = selectedOption === MovieFilter.POPULAR ? popularError : myMoviesError
 
   const handleMouseEnter = (id: number) => {
     setHoveredId(id);
@@ -70,7 +72,7 @@ export default function PopularMovies() {
   };
 
   const handleOptionChange = (event: SelectChangeEvent<unknown>) => {
-    setSelectedOption(event.target.value as 'POPULARES' | 'MIS_PELICULAS');
+    setSelectedOption(event.target.value as MovieFilter);
   };
 
   const getCardState = (movieId: number) => {
@@ -79,7 +81,7 @@ export default function PopularMovies() {
   }
 
   const handleRetry = () => {
-    if (selectedOption === 'POPULARES') {
+    if (selectedOption === MovieFilter.POPULAR) {
       refetchPopular()
     } else {
       refetchMyMovies()
@@ -96,7 +98,7 @@ export default function PopularMovies() {
         <Box marginTop="230px">
           <ErrorView 
           message={
-            selectedOption === 'POPULARES' 
+            selectedOption === MovieFilter.POPULAR 
               ? 'Error al cargar las películas populares' 
               : 'Error al cargar tus películas'
           }
@@ -110,7 +112,7 @@ export default function PopularMovies() {
       return (
         <EmptyState 
           message={
-            selectedOption === 'POPULARES'
+            selectedOption === MovieFilter.POPULAR
               ? 'No hay películas populares disponibles'
               : 'No has agregado ninguna película'
           }
@@ -124,7 +126,7 @@ export default function PopularMovies() {
         initial="hidden"
         animate="show"
       >
-        {movies.map((movie) => (
+        {movies.map((movie: Movie) => (
           <MotionClickableBox 
             key={movie.id}
             variants={cardVariants}
@@ -182,8 +184,8 @@ export default function PopularMovies() {
           IconComponent={KeyboardArrowDownIcon}
           MenuProps={selectMenuProps}
         >
-          <StyledMenuItem value="POPULARES">POPULARES</StyledMenuItem>
-          <StyledMenuItem value="MIS_PELICULAS">MIS PELÍCULAS</StyledMenuItem>
+          <StyledMenuItem value={MovieFilter.POPULAR}>{MovieFilter.POPULAR}</StyledMenuItem>
+          <StyledMenuItem value={MovieFilter.MY_MOVIES}>{MovieFilter.MY_MOVIES}</StyledMenuItem>
         </StyledSelect>
       </FilterHeader>
 
