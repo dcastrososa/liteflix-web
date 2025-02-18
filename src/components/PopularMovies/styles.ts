@@ -291,13 +291,13 @@ export const FilterLabel = styled(Typography)(({ theme }) => ({
 
 export const StyledSelect = styled(Select)(({ theme }) => ({
   color: theme.palette.common.white,
-  minWidth: 200,
+  maxWidth: '194px',
   fontSize: '18px',
   letterSpacing: '4px',
   fontWeight: 'bold',
   backgroundColor: 'transparent',
   '& .MuiSelect-select': {
-    padding: '8px 16px',
+    padding: '8px 32px 8px 16px',
     backgroundColor: 'transparent !important',
   },
   '& .MuiSelect-root': {
@@ -314,7 +314,7 @@ export const StyledSelect = styled(Select)(({ theme }) => ({
   },
   '& .MuiSvgIcon-root': {
     color: theme.palette.common.white,
-    right: 8,
+    right: 0,
     fontSize: '24px',
     transition: 'transform 0.2s ease',
   },
