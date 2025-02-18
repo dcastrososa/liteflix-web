@@ -112,28 +112,22 @@ export const MovieImage = styled('img')({
   },
 });
 
-export const DefaultContent = motion.create(styled(Box)({
+export const DefaultContent = styled(Box)({
   position: 'absolute',
-  inset: 0,
+  bottom: 16,
+  left: 16,
+  right: 16,
   display: 'flex',
   flexDirection: 'column',
-  background: 'linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%)',
-  cursor: 'pointer',
-  zIndex: 2,
+  alignItems: 'center',
+  gap: '8px',
+  zIndex: 1,
+  
   '& .play-icon': {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
+    fontSize: 48,
+    opacity: 1,
   },
-  '& .movie-title': {
-    position: 'absolute',
-    bottom: '16px',
-    left: 0,
-    right: 0,
-    textAlign: 'center',
-  }
-}));
+});
 
 export const MovieOverlay = motion.create(styled(Box)(() => ({
   position: 'absolute',
@@ -192,18 +186,16 @@ export const Year = styled(Typography)(({ theme }) => ({
   opacity: 0.8,
 }));
 
-export const MovieTitle = styled(Typography)(({ theme }) => ({
-  color: theme.palette.common.white,
-  fontWeight: 'medium',
+export const MovieTitle = styled(Typography)({
+  color: '#fff',
   fontSize: '16px',
+  lineHeight: '16px',
   letterSpacing: '4px',
-  textTransform: 'uppercase',
+  fontWeight: 400,
+  textAlign: 'center',
   width: '100%',
-  padding: '0 16px',
-  whiteSpace: 'nowrap',
-  overflow: 'hidden',
-  textOverflow: 'ellipsis',
-}));
+  textTransform: 'uppercase',
+});
 
 export const PlayIcon = styled(PlayArrowIcon)(({ theme }) => ({
   fontSize: '48px',
@@ -213,9 +205,9 @@ export const PlayIcon = styled(PlayArrowIcon)(({ theme }) => ({
   borderRadius: '50%',
   padding: '8px',
   border: `2px solid ${theme.palette.common.white}`,
+  transition: 'transform 0.2s ease',
   '&:hover': {
     transform: 'scale(1.1)',
-    transition: 'transform 0.2s ease',
   },
 }));
 
