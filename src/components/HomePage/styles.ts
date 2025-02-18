@@ -60,6 +60,7 @@ export const ContentContainer = styled(Container)(({ theme }) => ({
     textAlign: 'center',
     padding: theme.spacing(2),
     paddingBottom: theme.spacing(4),
+    marginTop: '100px',
   },
   '@media (max-height: 700px)': {
     paddingBottom: theme.spacing(8),
