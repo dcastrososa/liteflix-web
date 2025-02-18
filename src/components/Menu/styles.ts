@@ -3,13 +3,27 @@ import { Box, Button, Typography, IconButton } from '@mui/material'
 import { motion } from 'framer-motion'
 
 export const menuAnimation = {
-  initial: { x: -380 },
-  animate: { x: 0 },
-  exit: { x: -380 },
-  transition: { 
-    type: "spring", 
-    damping: 30, 
-    stiffness: 300 
+  initial: { 
+    x: '100%',
+    opacity: 0 
+  },
+  animate: { 
+    x: 0,
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      damping: 30,
+      stiffness: 300
+    }
+  },
+  exit: { 
+    x: '100%',
+    opacity: 0,
+    transition: {
+      type: 'spring',
+      damping: 30,
+      stiffness: 300
+    }
   }
 };
 
