@@ -5,8 +5,8 @@ import { AnimatePresence } from 'framer-motion'
 import { SelectChangeEvent } from '@mui/material'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import StarIcon from '@mui/icons-material/Star'
-import { ErrorView } from '@/components/common/ErrorView'
-import { EmptyState } from '@/components/common/EmptyState'
+import { ErrorView } from '@/components/common/ErrorView/ErrorView'
+import { EmptyState } from '@/components/common/EmptyState/EmptyState'
 import {
   SidebarContainer,
   FilterHeader,
@@ -33,7 +33,7 @@ import {
 } from './styles'
 import { PopularMoviesSkeleton } from '../Skeletons/PopularMoviesSkeleton'
 import { usePopularMovies, useMyMovies } from '@/hooks/useMovies'
-import { useQueryClient } from '@tanstack/react-query'
+import { Box } from '@mui/material'
 
 export default function PopularMovies() {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
@@ -43,15 +43,15 @@ export default function PopularMovies() {
     data: popularMovies, 
     isLoading: isLoadingPopular,
     error: popularError,
+    refetch: refetchPopular,
   } = usePopularMovies()
 
   const { 
     data: myMovies, 
     isLoading: isLoadingMyMovies,
-    error: myMoviesError 
+    error: myMoviesError,
+    refetch: refetchMyMovies,
   } = useMyMovies(selectedOption === 'MIS_PELICULAS')
-
-  const queryClient = useQueryClient()
 
   const movies = useMemo(() => {
     const moviesData = selectedOption === 'POPULARES' ? popularMovies : myMovies
@@ -78,61 +78,53 @@ export default function PopularMovies() {
     return hoveredId === movieId ? "hover" : "sibling"
   }
 
-  if (isLoading) {
-    return <PopularMoviesSkeleton />
+  const handleRetry = () => {
+    if (selectedOption === 'POPULARES') {
+      refetchPopular()
+    } else {
+      refetchMyMovies()
+    }
   }
 
-  if (error) {
+  const renderContent = () => {
+    if (isLoading) {
+      return <PopularMoviesSkeleton />
+    }
+
+    if (error) {
+      return (
+        <Box marginTop="230px">
+          <ErrorView 
+          message={
+            selectedOption === 'POPULARES' 
+              ? 'Error al cargar las películas populares' 
+              : 'Error al cargar tus películas'
+          }
+          onRetry={handleRetry}
+        />
+        </Box>
+      )
+    }
+
+    if (!movies?.length) {
+      return (
+        <EmptyState 
+          message={
+            selectedOption === 'POPULARES'
+              ? 'No hay películas populares disponibles'
+              : 'No has agregado ninguna película'
+          }
+        />
+      )
+    }
+
     return (
-      <ErrorView 
-        message={
-          selectedOption === 'POPULARES' 
-            ? 'Error al cargar las películas populares' 
-            : 'Error al cargar tus películas'
-        }
-        onRetry={() => {
-          queryClient.invalidateQueries({ 
-            queryKey: ['movies', selectedOption.toLowerCase()] 
-          })
-        }}
-      />
-    )
-  }
-
-  if (!movies?.length) {
-    return (
-      <EmptyState 
-        message={
-          selectedOption === 'POPULARES'
-            ? 'No hay películas populares disponibles'
-            : 'No has agregado ninguna película'
-        }
-      />
-    )
-  }
-
-  return (
-    <SidebarContainer>
-      <FilterHeader>
-        <FilterLabel>VER:</FilterLabel>
-        <StyledSelect 
-          value={selectedOption} 
-          onChange={handleOptionChange}
-          variant="standard"
-          IconComponent={KeyboardArrowDownIcon}
-          MenuProps={selectMenuProps}
-        >
-          <StyledMenuItem value="POPULARES">POPULARES</StyledMenuItem>
-          <StyledMenuItem value="MIS_PELICULAS">MIS PELÍCULAS</StyledMenuItem>
-        </StyledSelect>
-      </FilterHeader>
-
       <MotionMovieList
         variants={container}
         initial="hidden"
         animate="show"
       >
-        {movies?.map((movie) => (
+        {movies.map((movie) => (
           <MotionClickableBox 
             key={movie.id}
             variants={cardVariants}
@@ -176,6 +168,26 @@ export default function PopularMovies() {
           </MotionClickableBox>
         ))}
       </MotionMovieList>
+    )
+  }
+
+  return (
+    <SidebarContainer>
+      <FilterHeader>
+        <FilterLabel>VER:</FilterLabel>
+        <StyledSelect 
+          value={selectedOption} 
+          onChange={handleOptionChange}
+          variant="standard"
+          IconComponent={KeyboardArrowDownIcon}
+          MenuProps={selectMenuProps}
+        >
+          <StyledMenuItem value="POPULARES">POPULARES</StyledMenuItem>
+          <StyledMenuItem value="MIS_PELICULAS">MIS PELÍCULAS</StyledMenuItem>
+        </StyledSelect>
+      </FilterHeader>
+
+      {renderContent()}
     </SidebarContainer>
   )
 } 

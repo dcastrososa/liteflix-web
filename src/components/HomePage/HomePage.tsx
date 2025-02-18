@@ -26,6 +26,7 @@ import { PopularMovies } from '@/components/PopularMovies'
 import { AddMovieModal } from '@/components/AddMovieModal/AddMovieModal'
 import { useNowPlayingMovie } from '@/hooks/useMovies'
 import { MovieSkeleton } from '@/components/Skeletons/MovieSkeleton'
+import { ErrorView } from '@/components/common/ErrorView/ErrorView'
 
 export function HomePage() {
   const [isAddMovieModalOpen, setIsAddMovieModalOpen] = useState(false)
@@ -33,7 +34,12 @@ export function HomePage() {
   const handleOpenModal = () => setIsAddMovieModalOpen(true)
   const handleCloseModal = () => setIsAddMovieModalOpen(false)
 
-  const { data: nowPlayingMovie, isLoading } = useNowPlayingMovie()
+  const { 
+    data: nowPlayingMovie, 
+    isLoading,
+    error,
+    refetch 
+  } = useNowPlayingMovie()
 
   if (isLoading) {
     return (
@@ -41,6 +47,26 @@ export function HomePage() {
         <Header onAddMovie={handleOpenModal} />
         <FullHeightBox>
           <MovieSkeleton />
+          <PopularMovies />
+        </FullHeightBox>
+      </>
+    )
+  }
+
+  if (error) {
+    return (
+      <>
+        <Header onAddMovie={handleOpenModal} />
+        <FullHeightBox>
+          <MainContent>
+            <GradientOverlay />
+            <ContentContainer maxWidth="xl">
+              <ErrorView 
+                message="Error al cargar la película destacada"
+                onRetry={refetch}
+              />
+            </ContentContainer>
+          </MainContent>
           <PopularMovies />
         </FullHeightBox>
       </>

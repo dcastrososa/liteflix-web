@@ -3,7 +3,7 @@ import "./globals.css";
 import { Providers } from './providers'
 import ThemeRegistry from '@/components/ThemeRegistry/ThemeRegistry'
 import { bebasNeue } from '@/fonts/localFonts'
-import { UserUUIDInitializer } from '@/components/common/UserUUIDInitializer'
+import { UserUUIDInitializer } from '@/components/common/UserUUIDInitializer/UserUUIDInitializer'
 
 export const metadata: Metadata = {
   title: "Liteflix",
