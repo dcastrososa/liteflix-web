@@ -194,9 +194,9 @@ export const item = {
   }
 }
 
-export const MotionBox = motion(Box)
-export const MotionTypography = motion(Typography)
-export const MotionMovieTitle = styled(motion(Box))(({ theme }) => ({
+export const MotionBox = motion.create(Box)
+export const MotionTypography = motion.create(Typography)
+export const MotionMovieTitle = styled(motion.create(Box))(({ theme }) => ({
   color: theme.palette.aqua.main,
   fontSize: '120px',
   letterSpacing: '16px',
@@ -225,7 +225,7 @@ export const MotionMovieTitle = styled(motion(Box))(({ theme }) => ({
     marginBottom: '16px',
   },
 }));
-export const MotionButtonsContainer = motion(ButtonsContainer)
+export const MotionButtonsContainer = motion.create(ButtonsContainer)
 
 export const MovieImage = styled('img')({
   position: 'absolute',

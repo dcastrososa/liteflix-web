@@ -132,7 +132,7 @@ export function AddMovieModal({ isOpen, onClose }: AddMovieModalProps) {
                 movieTitle={movieTitle}
                 error={error}
                 onDrop={onDrop}
-                onTitleChange={(e) => setMovieTitle(e.target.value)}
+                onTitleChange={(value) => setMovieTitle(value)}
                 onSubmit={handleSubmit}
                 onRetry={handleRetry}
                 getRootProps={getRootProps}

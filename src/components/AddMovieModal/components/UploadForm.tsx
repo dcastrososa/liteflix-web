@@ -13,15 +13,15 @@ interface UploadFormProps {
   movieTitle: string;
   error: string | null;
   onDrop: (files: File[]) => void;
-  onTitleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onTitleChange: (value: string) => void;
   onSubmit: () => void;
   onRetry: () => void;
   getRootProps: () => DropzoneRootProps;
   getInputProps: () => DropzoneInputProps;
+  isDragActive: boolean;
 }
 
 export function UploadForm({
-  file,
   movieTitle,
   error,
   onTitleChange,
@@ -29,6 +29,7 @@ export function UploadForm({
   onRetry,
   getRootProps,
   getInputProps,
+  isDragActive,
 }: UploadFormProps) {
   if (error) {
     return <ErrorView movieTitle={movieTitle} onRetry={onRetry} error={error} />;
@@ -42,10 +43,13 @@ export function UploadForm({
           <input {...getInputProps()} />
           <AttachFileIcon />
           <DropZoneText className="desktop-text">
-            {file ? file.name : 'AGREGÁ UN ARCHIVO O ARRASTRALO Y SOLTALO AQUÍ'}
+            {isDragActive 
+              ? 'AGREGA UN ARCHIVO'
+              : 'AGREGÁ UN ARCHIVO O ARRASTRALO Y SOLTALO AQUÍ'
+            }
           </DropZoneText>
           <DropZoneText className="mobile-text">
-            {file ? file.name : 'AGREGA UN ARCHIVO'}
+            AGREGA UN ARCHIVO
           </DropZoneText>
         </DropZone>
       }

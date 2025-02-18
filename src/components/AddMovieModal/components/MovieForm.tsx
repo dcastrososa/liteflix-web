@@ -1,36 +1,37 @@
-import { MovieTitleInput, UploadButton } from '../styles'
+import { MovieTitleInput, UploadButton, FormContainer } from '../styles'
 
 interface MovieFormProps {
   movieTitle: string;
-  disabled?: boolean;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (value: string) => void;
   onSubmit?: () => void;
+  disabled?: boolean;
 }
 
-export function MovieForm({ 
-  movieTitle, 
-  disabled = false,
-  onChange,
-  onSubmit 
-}: MovieFormProps) {
+export function MovieForm({ movieTitle, onChange, onSubmit, disabled }: MovieFormProps) {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    onChange(event.target.value);
+  };
+
   return (
-    <>
+    <FormContainer>
       <MovieTitleInput
-        placeholder="TÍTULO"
         value={movieTitle}
+        onChange={handleChange}
+        placeholder="TÍTULO"
         disabled={disabled}
         variant="standard"
-        onChange={onChange}
         InputProps={{
           disableUnderline: true,
         }}
       />
-      <UploadButton 
-        disabled={disabled || !movieTitle}
-        onClick={onSubmit}
-      >
-        SUBIR PELÍCULA
-      </UploadButton>
-    </>
+      {!disabled && (
+        <UploadButton
+          onClick={onSubmit}
+          disabled={!movieTitle}
+        >
+          SUBIR PELÍCULA
+        </UploadButton>
+      )}
+    </FormContainer>
   );
 } 

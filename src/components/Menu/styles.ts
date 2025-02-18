@@ -42,7 +42,7 @@ export const MenuTitle = styled(Typography)({
   opacity: 0.8,
 });
 
-export const MenuContainer = styled(motion(Box))(({ theme }) => ({
+export const MenuContainer = styled(motion.create(Box))(({ theme }) => ({
   position: 'fixed',
   top: 0,
   right: 0,

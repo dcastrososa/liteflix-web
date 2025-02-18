@@ -14,13 +14,11 @@ export function SuccessView({ movieTitle, onClose }: SuccessViewProps) {
   return (
     <ModalLayout
       header={
-        <SuccessTitle>
-          ¡FELICITACIONES!
-        </SuccessTitle>
+        <SuccessTitle>¡FELICITACIONES!</SuccessTitle>
       }
       content={
         <SuccessMessage>
-          {movieTitle} FUE CORRECTAMENTE SUBIDA.
+          {movieTitle.toUpperCase()} FUE CORRECTAMENTE SUBIDA.
         </SuccessMessage>
       }
       footer={

@@ -112,7 +112,7 @@ export const MovieImage = styled('img')({
   },
 });
 
-export const DefaultContent = motion(styled(Box)({
+export const DefaultContent = motion.create(styled(Box)({
   position: 'absolute',
   inset: 0,
   display: 'flex',
@@ -135,7 +135,7 @@ export const DefaultContent = motion(styled(Box)({
   }
 }));
 
-export const MovieOverlay = motion(styled(Box)(() => ({
+export const MovieOverlay = motion.create(styled(Box)(() => ({
   position: 'absolute',
   inset: 0,
   backgroundColor: 'rgba(36, 36, 36, 0.7)',
@@ -243,8 +243,8 @@ export const MovieCardContainer = styled(Box)({
   }
 });
 
-export const MotionMovieList = motion(MovieList)
-export const MotionClickableBox = motion(ClickableBox)
+export const MotionMovieList = motion.create(MovieList)
+export const MotionClickableBox = motion.create(ClickableBox)
 
 export const SidebarContainer = styled(Box)(({ theme }) => ({
   position: 'fixed',

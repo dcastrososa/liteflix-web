@@ -17,7 +17,13 @@ export function UploadProgress({ progress, movieTitle }: UploadProgressProps) {
       }
       content={
         <ProgressBar>
-          <Progress progress={progress} />
+          <Progress 
+            progress={progress} 
+            role="progressbar"
+            aria-valuenow={progress}
+            aria-valuemin={0}
+            aria-valuemax={100}
+          />
         </ProgressBar>
       }
       footer={

@@ -2,6 +2,9 @@ import { styled } from '@mui/material/styles'
 import { Box, Button, IconButton, TextField, Typography } from '@mui/material'
 import { motion } from 'framer-motion'
 
+export const MotionBox = motion.create(Box)
+export const MotionTypography = motion.create(Typography)
+
 export const modalContainerAnimation = {
   initial: { opacity: 0 },
   animate: { opacity: 1 },
@@ -14,7 +17,7 @@ export const modalContentAnimation = {
   exit: { y: 20, opacity: 0 },
 }
 
-export const ModalContainer = styled(motion(Box))({
+export const ModalContainer = styled(motion.create(Box))({
   position: 'fixed',
   top: 0,
   left: 0,
@@ -27,7 +30,7 @@ export const ModalContainer = styled(motion(Box))({
   zIndex: 1000,
 });
 
-export const ModalContent = styled(motion(Box))(({ theme }) => ({
+export const ModalContent = styled(motion.create(Box))(({ theme }) => ({
   backgroundColor: theme.palette.blackLight.main,
   width: '730px',
   height: '440px',
@@ -321,4 +324,11 @@ export const RetryButton = styled(Button)(({ theme }) => ({
     backgroundColor: 'transparent',
     opacity: 0.8,
   },
-})); 
+}));
+
+export const FormContainer = styled(Box)({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  gap: '16px',
+}); 
