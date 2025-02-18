@@ -202,13 +202,16 @@ export const MotionMovieTitle = styled(motion(Box))(({ theme }) => ({
   letterSpacing: '16px',
   lineHeight: '120px',
   textTransform: 'uppercase',
-  textAlign: 'center',
   marginBottom: '24px',
-  [theme.breakpoints.down('sm')]: {
+  maxWidth: 'calc(100% - 400px)',
+  textAlign: 'left',
+  [theme.breakpoints.down('md')]: {
+    maxWidth: '100%',
     fontSize: '56px',
     letterSpacing: '8px',
     lineHeight: '56px',
     marginBottom: '16px',
+    textAlign: 'center',
   },
   '@media (max-width: 360px)': {
     fontSize: '48px',
