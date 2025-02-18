@@ -4,14 +4,27 @@ import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNone
 
 export const HeaderContainer = styled(Box)(({ theme }) => ({
   position: 'fixed',
-  width: '100%',
-  padding: '20px 40px',
-  zIndex: 50,
+  top: 0,
+  left: 0,
+  right: 0,
+  zIndex: 1000,
+  padding: theme.spacing(2, 3),
   display: 'flex',
+  justifyContent: 'space-between',
   alignItems: 'center',
+  '&::before': {
+    content: '""',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    height: '100%',
+    backdropFilter: 'blur(10px)',
+    pointerEvents: 'none',
+    zIndex: -1,
+  },
   [theme.breakpoints.down('md')]: {
-    padding: '16px 20px',
-    justifyContent: 'space-between',
+    padding: theme.spacing(2),
   },
 }));
 
