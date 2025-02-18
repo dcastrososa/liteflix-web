@@ -141,7 +141,7 @@ export default function PopularMovies() {
               {hoveredId !== movie.id && (
                 <DefaultContent {...defaultContentAnimations}>
                   <PlayIcon className="play-icon" />
-                  <MovieTitle className="movie-title">{movie.originalTitle}</MovieTitle>
+                  <MovieTitle data-testid="movie-title">{movie.originalTitle}</MovieTitle>
                 </DefaultContent>
               )}
             </AnimatePresence>

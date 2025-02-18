@@ -36,7 +36,6 @@ describe('UploadForm', () => {
   it('shows different text when drag is active', () => {
     render(<UploadForm {...defaultProps} isDragActive={true} />)
     
-    // Buscamos específicamente en el elemento desktop
     expect(screen.getByText('AGREGA UN ARCHIVO', { selector: '.desktop-text' })).toBeInTheDocument()
   })
 
