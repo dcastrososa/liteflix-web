@@ -5,7 +5,7 @@ import {
   HeaderContainer,
   HeaderLeft,
   HeaderRight,
-  Logo,
+  DesktopLogo,
   AddMovieButton,
   MenuContainer,
   MobileLogo,
@@ -16,8 +16,7 @@ import {
   AvatarImage,
 } from './styles'
 import { CustomMenuIcon } from './MenuIcon'
-import { BoldText } from '@/components/HomePage/styles'
-import { NormalText } from '@/components/HomePage/styles'
+import { Logo as CustomLogo } from '@/components/common/Logo/Logo'
 
 interface HeaderProps {
   onAddMovie: () => void
@@ -31,19 +30,17 @@ export function Header({ onAddMovie }: HeaderProps) {
       </MenuContainer>
       
       <HeaderLeft>
-        <Logo variant="h1">
-          <BoldText>LITE</BoldText>
-          <NormalText>FLIX</NormalText>
-        </Logo>
+        <DesktopLogo>
+          <CustomLogo />
+        </DesktopLogo>
         <AddMovieButton onClick={onAddMovie}>
           <span className="plus-icon">+</span>
           AGREGAR PELÍCULA
         </AddMovieButton>
       </HeaderLeft>
 
-      <MobileLogo variant="h1">
-        <BoldText>LITE</BoldText>
-        <NormalText>FLIX</NormalText>
+      <MobileLogo>
+        <CustomLogo />
       </MobileLogo>
 
       <HeaderRight>

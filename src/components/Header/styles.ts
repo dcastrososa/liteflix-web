@@ -1,5 +1,5 @@
 import { styled } from '@mui/material/styles'
-import { Box, Typography, Button, IconButton, Avatar } from '@mui/material'
+import { Box, Button, IconButton, Avatar } from '@mui/material'
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined'
 
 export const HeaderContainer = styled(Box)(({ theme }) => ({
@@ -60,16 +60,20 @@ export const HeaderRight = styled(Box)(({ theme }) => ({
   },
 }));
 
-export const Logo = styled(Typography)(({ theme }) => ({
-  color: theme.palette.aqua.main,
-  fontSize: '34px',
-  lineHeight: '34px',
-  letterSpacing: '4px',
+export const DesktopLogo = styled(Box)(({ theme }) => ({
   marginRight: '40px',
-  fontWeight: 400,
   [theme.breakpoints.down('md')]: {
-    margin: 0,
+    display: 'none',
+  },
+}));
+
+export const MobileLogo = styled(Box)(({ theme }) => ({
+  [theme.breakpoints.down('md')]: {
+    display: 'block',
     order: 2,
+  },
+  [theme.breakpoints.up('md')]: {
+    display: 'none',
   },
 }));
 
@@ -92,15 +96,6 @@ export const AddMovieButton = styled(Button)(({ theme }) => ({
     marginRight: theme.spacing(0.5),
   },
   [theme.breakpoints.down('md')]: {
-    display: 'none',
-  },
-}));
-
-export const MobileLogo = styled(Logo)(({ theme }) => ({
-  [theme.breakpoints.down('md')]: {
-    display: 'block',
-  },
-  [theme.breakpoints.up('md')]: {
     display: 'none',
   },
 }));
