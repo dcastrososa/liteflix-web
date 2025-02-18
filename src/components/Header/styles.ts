@@ -19,6 +19,7 @@ export const HeaderContainer = styled(Box)(({ theme }) => ({
     left: 0,
     right: 0,
     height: '100%',
+    backdropFilter: 'blur(6px)',
     pointerEvents: 'none',
     zIndex: -1,
   },
