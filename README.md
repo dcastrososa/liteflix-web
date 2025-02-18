@@ -19,7 +19,7 @@ This project is for demonstration purposes only. It showcases a movie platform b
 
 ## Getting Started
 
-1. Create a `.env.local` file in the root directory with:
+1. The project includes a `.env.local` file in the root directory. You just need to modify the API URL according to your setup:
 ```bash
 NEXT_PUBLIC_API_URL=http://localhost:4000  # Replace with your API URL
 ```
