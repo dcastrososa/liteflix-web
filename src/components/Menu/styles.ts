@@ -114,7 +114,18 @@ export const LogoutButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-export const CloseButton = styled(IconButton)({
+export const MobileHeader = styled(Box)(({ theme }) => ({
+  display: 'none',
+  [theme.breakpoints.down('md')]: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: '24px',
+    width: '100%',
+  }
+}));
+
+export const CloseButton = styled(IconButton)(({ theme }) => ({
   position: 'absolute',
   top: '24px',
   right: '24px',
@@ -122,4 +133,7 @@ export const CloseButton = styled(IconButton)({
   '& .MuiSvgIcon-root': {
     fontSize: '24px',
   },
-}); 
+  [theme.breakpoints.down('md')]: {
+    position: 'static',
+  }
+})); 

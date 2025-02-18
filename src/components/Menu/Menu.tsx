@@ -13,9 +13,12 @@ import {
   AddMovieButton,
   LogoutButton,
   CloseButton,
+  MobileHeader,
 } from './styles'
 import { CustomMenuIcon } from '../Header/MenuIcon'
 import { menuAnimation } from './styles'
+import { Logo } from '../common/Logo/Logo'
+import { Avatar } from '../common/Avatar/Avatar'
 
 const MENU_ITEMS = [
   { id: 'inicio', label: 'INICIO' },
@@ -49,9 +52,13 @@ export function Menu({ onAddMovie, MenuIcon = CustomMenuIcon }: MenuProps) {
       <AnimatePresence>
         {isOpen && (
           <MenuContainer {...menuAnimation}>
-            <CloseButton onClick={() => setIsOpen(false)}>
-              <CloseIcon />
-            </CloseButton>
+            <MobileHeader>
+              <CloseButton onClick={() => setIsOpen(false)}>
+                <CloseIcon />
+              </CloseButton>
+              <Logo />
+              <Avatar />
+            </MobileHeader>
             <MenuContent>
               {MENU_ITEMS.map((item) => (
                 <MenuItem key={item.id}>
