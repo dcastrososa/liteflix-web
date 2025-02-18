@@ -22,6 +22,7 @@ interface UploadFormProps {
 }
 
 export function UploadForm({
+  file,
   movieTitle,
   error,
   onTitleChange,
@@ -43,13 +44,15 @@ export function UploadForm({
           <input {...getInputProps()} />
           <AttachFileIcon />
           <DropZoneText className="desktop-text">
-            {isDragActive 
-              ? 'AGREGA UN ARCHIVO'
-              : 'AGREGÁ UN ARCHIVO O ARRASTRALO Y SOLTALO AQUÍ'
+            {file 
+              ? file.name
+              : isDragActive 
+                ? 'AGREGA UN ARCHIVO'
+                : 'AGREGÁ UN ARCHIVO O ARRASTRALO Y SOLTALO AQUÍ'
             }
           </DropZoneText>
           <DropZoneText className="mobile-text">
-            AGREGA UN ARCHIVO
+            {file ? file.name : 'AGREGA UN ARCHIVO'}
           </DropZoneText>
         </DropZone>
       }

@@ -65,7 +65,7 @@ export function AddMovieModal({ isOpen, onClose }: AddMovieModalProps) {
     setError(null)
   }, [])
 
-  const { getRootProps, getInputProps } = useDropzone({
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     accept: ACCEPTED_FILE_TYPES,
     maxFiles: 1,
@@ -137,6 +137,7 @@ export function AddMovieModal({ isOpen, onClose }: AddMovieModalProps) {
                 onRetry={handleRetry}
                 getRootProps={getRootProps}
                 getInputProps={getInputProps}
+                isDragActive={isDragActive}
               />
             ) : isSuccess ? (
               <SuccessView
