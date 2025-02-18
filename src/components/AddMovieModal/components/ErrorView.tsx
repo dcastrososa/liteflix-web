@@ -46,6 +46,7 @@ export function ErrorView({ movieTitle, onRetry, error }: ErrorViewProps) {
         <MovieForm 
           movieTitle={movieTitle}
           disabled
+          onChange={() => {}}
         />
       }
     />
