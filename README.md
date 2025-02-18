@@ -17,23 +17,30 @@ This project is for demonstration purposes only. It showcases a movie platform b
 - Animated transitions
 - Unit tests
 
-## Note
-
-This is not a production application. It was created to demonstrate React development skills, testing practices, and modern web development techniques.
-
 ## Getting Started
 
-First, run the development server:
+1. Create a `.env.local` file in the root directory with:
+```bash
+NEXT_PUBLIC_API_URL=http://localhost:4000  # Replace with your API URL
+```
 
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Run the development server:
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Note
+
+This is not a production application. It was created to demonstrate React development skills, testing practices, and modern web development techniques.
 
