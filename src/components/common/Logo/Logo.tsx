@@ -1,4 +1,4 @@
-import { StyledLogo } from './styles'
+import { StyledLogo, BoldSpan, RegularSpan } from './styles'
 
 interface LogoProps {
   className?: string;
@@ -7,8 +7,8 @@ interface LogoProps {
 export function Logo({ className }: LogoProps) {
   return (
     <StyledLogo variant="h1" className={className}>
-      <span style={{ fontWeight: 700 }}>LITE</span>
-      <span style={{ fontWeight: 400, marginLeft: '8px' }}>FLIX</span>
+      <BoldSpan>LITE</BoldSpan>
+      <RegularSpan>FLIX</RegularSpan>
     </StyledLogo>
   )
 } 

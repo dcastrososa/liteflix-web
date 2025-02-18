@@ -185,7 +185,7 @@ export default function PopularMovies() {
           MenuProps={selectMenuProps}
         >
           <StyledMenuItem value={MovieFilter.POPULAR}>{MovieFilter.POPULAR}</StyledMenuItem>
-          <StyledMenuItem value={MovieFilter.MY_MOVIES}>{MovieFilter.MY_MOVIES}</StyledMenuItem>
+          <StyledMenuItem value={MovieFilter.MY_MOVIES}>MIS PELICULAS</StyledMenuItem>
         </StyledSelect>
       </FilterHeader>
 
