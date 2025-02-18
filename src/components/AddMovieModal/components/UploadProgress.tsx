@@ -30,6 +30,7 @@ export function UploadProgress({ progress, movieTitle }: UploadProgressProps) {
         <MovieForm 
           movieTitle={movieTitle}
           disabled
+          onChange={() => {}}
         />
       }
     />
